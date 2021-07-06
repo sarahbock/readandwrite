@@ -7,6 +7,8 @@ require_once("languages.php");
 $selectedlanguage='';
 $languagepassword='';
 
+//specified language
+$sl = ""; if (isset($_GET["sl"])){$sl=$_GET["sl"];}
 
 
 if (!isset($_SESSION['loggedIn'])) {
@@ -48,7 +50,9 @@ if (!$_SESSION['loggedIn']): ?>
         <?php
         foreach ($languages as $x=>$value) {
           //echo ($value->language1);
-          echo '<option value="'.$x.'">'.ucfirst($value->language1).'</option>';
+          if ($sl==="" || $sl===$value->language1){
+            echo '<option value="'.$x.'">'.ucfirst($value->language1).'</option>';
+          }
         }
         ?>
 
