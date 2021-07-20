@@ -17,6 +17,7 @@
         $jsString.='var apiPath="'.$apiPath.'"; ';
         $jsString.='var shellPath="'.$shellPath.'"; ';
         $jsString.='var language1="'.$language1.'"; ';
+        $jsString.='var language1header="'.$language1header.'"; ';
         $jsString.='var language2="'.$language2.'"; ';
 				$jsString.='var functions='.json_encode($functions).'; ';
 				$jsString.='var topics='.json_encode($topics).'; ';
@@ -37,7 +38,7 @@
 		?>
 		</style>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/scripts.js?v=36"></script>
+    <script type="text/javascript" src="js/scripts.js?v=37"></script>
     <script type="text/javascript" src="js/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="js/rangy-core.js"></script> <!-- range and selection library - https://github.com/timdown/rangy-->
     <script type="text/javascript" src="js/rangy-classapplier.js"></script>

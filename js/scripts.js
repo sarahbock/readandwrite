@@ -297,7 +297,7 @@ var oldValue="";
 $(document).ready(function(){
 
     //populate language titles
-    $(".language1").html(language1Cap);
+    $(".language1").html(language1Cap); if (language1header!==""){$(".language1").html(language1header);}
     $(".language2").html(language2Cap);
     $("title").html(language1Cap+" Record and Write");
 

@@ -1,6 +1,7 @@
  <?php
 
 $language1=$_SESSION['language1']; //lowercase primary language name e.g. german
+$language1header=$_SESSION['language1header'];
 $language2=$_SESSION['language2']; //lowercase translation language name e.g. english
 $language1U = ucfirst($language1); //Change first letter to capital
 $language2U = ucfirst($language2);

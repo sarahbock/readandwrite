@@ -24,6 +24,7 @@ if (isset($_POST['password'])) {
     if (sha1($_POST['password']) == $languagepassword) {
         $_SESSION['loggedIn'] = true;
         $_SESSION['language1'] = $selectedlanguage->language1;
+        $_SESSION['language1header'] = $selectedlanguage->language1header;
         $_SESSION['language2'] = $selectedlanguage->language2;
     } else {
         die ('Incorrect password');
