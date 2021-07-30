@@ -16,6 +16,7 @@
         //write settings to js
         $jsString.='var apiPath="'.$apiPath.'"; ';
         $jsString.='var language1="'.$language1.'"; ';
+				$jsString.='var language1header="'.$language1header.'"; ';
         $jsString.='var language2="'.$language2.'"; ';
         echo $jsString;
         ?>

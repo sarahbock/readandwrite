@@ -545,10 +545,13 @@ function textAreaBlur(e){
     if ($(e).hasClass("hex")===true){  $(e).closest('tr').css("background-color","#"+$(e).html());  } //apply new hex code to table row
     //value=encodeURIComponent(value);
     saveField(id,field,value);
-    //copy English (language 2) to explanation if explanation is empty
-    if ($(e).data("field")==='translation' && $("#explanation"+$(e).data("id")).html()===""){
-      $("#explanation"+$(e).data("id")).html($(e).html());
-      saveField(id,"explanation",$(e).html());//auto save explanation to DB after pre-populating it
+    
+    if (language1==="sandpit"||language1==="ktunaxa"||language1==="german"||language1==="chinese"){
+      //copy English (language 2) to explanation if explanation is empty
+      if ($(e).data("field")==='translation' && $("#explanation"+$(e).data("id")).html()===""){
+        $("#explanation"+$(e).data("id")).html($(e).html());
+        saveField(id,"explanation",$(e).html());//auto save explanation to DB after pre-populating it
+      }
     }
 }
 

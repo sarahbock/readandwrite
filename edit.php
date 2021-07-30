@@ -15,6 +15,7 @@
         //write settings to js
         $jsString.='var apiPath="'.$apiPath.'"; ';
         $jsString.='var language1="'.$language1.'"; ';
+				$jsString.='var language1header="'.$language1header.'"; ';
         $jsString.='var language2="'.$language2.'"; ';
         echo $jsString;
 
@@ -35,7 +36,7 @@
 		?>
 		</style>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/scripts.js?v=30"></script>
+    <script type="text/javascript" src="js/scripts.js?v=31"></script>
     <script src="js/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="js/rangy-core.js"></script>
     <script type="text/javascript" src="js/rangy-classapplier.js"></script>

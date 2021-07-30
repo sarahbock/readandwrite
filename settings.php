@@ -20,7 +20,7 @@ require_once($db_connect_dir."dbconnect.php");//move this file to your root dire
 
 
 //Label in drop down menu => field name in database table (must be exact match)
-$filters=array("Topics"=>"topic", "Flagged"=>"flag","Keywords (".$language1U.")"=>"keyword", "Keywords (".$language2U.")"=>"keywordtranslation", "Speaker"=>"speaker", "Class"=>"class", "Language function"=>"function", "Linguistic keyword"=>"keywordling");
+$filters=array("Topics"=>"topic", "Flagged"=>"flag","Keywords (".$language1header.")"=>"keyword", "Keywords (".$language2U.")"=>"keywordtranslation", "Speaker"=>"speaker", "Class"=>"class", "Language function"=>"function", "Linguistic keyword"=>"keywordling");
 
 //create array of glossing categories
 $sql_glossing = "SELECT * FROM ".$table."_glossing ORDER BY id";
