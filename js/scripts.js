@@ -545,7 +545,7 @@ function textAreaBlur(e){
     if ($(e).hasClass("hex")===true){  $(e).closest('tr').css("background-color","#"+$(e).html());  } //apply new hex code to table row
     //value=encodeURIComponent(value);
     saveField(id,field,value);
-    
+
     if (language1==="sandpit"||language1==="ktunaxa"||language1==="german"||language1==="chinese"){
       //copy English (language 2) to explanation if explanation is empty
       if ($(e).data("field")==='translation' && $("#explanation"+$(e).data("id")).html()===""){
@@ -1124,7 +1124,7 @@ function deleteItem(id, item, value){
 	var r = confirm("Are you really sure you want to delete this "+item.slice(0, -1)+"?"); //remove s from plural string
 	if (r !== true) {return false;} else{
 		show("DELETING ITEM "+id+" call "+apiPath+"delete-item.php?id="+id+"&item="+item+"&value="+value);
-		$.get(apiPath+"delete-item.php?id="+id+"&item="+item+"&value="+value, function() {})
+		$.get(apiPath+"delete-item.php?id="+id+"&table="+language1+"&item="+item+"&value="+value, function() {})
 		.done(function(){
       $("#tableRow"+id).remove();
 		})
