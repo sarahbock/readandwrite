@@ -47,7 +47,7 @@ if (!$_SESSION['loggedIn']): ?>
 <p>You need to login</p>
     <form method="post">
       <select name="language" id="language">
-        <option value="">Select language</option>
+        <option value="">Select language or group</option>
         <?php
         foreach ($languages as $x=>$value) {
           //echo ($value->language1);

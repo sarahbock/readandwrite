@@ -177,7 +177,6 @@
     <div class="containerScroll"> <!--scrollable content-->
 
 
-
     <table id="entriesTable">
   <tbody id="entriesTableBody">
 

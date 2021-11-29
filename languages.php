@@ -1,35 +1,35 @@
  <?php
 // use https://www.w3schools.com/php/phptryit.asp?filename=tryphp_func_string_sha1 to change passwords
 
-$agedcare1 = new stdClass();
-$agedcare1->language1="agedcare1";
-$agedcare1->language1header="Language";
-$agedcare1->language2="english";
-$agedcare1->password="030b18cd7352323bd8b1190cf2759369bf36e82c";
+$presenter = new stdClass();
+$presenter->language1="presenter";
+$presenter->language1header="Language";
+$presenter->language2="english";
+$presenter->password="d8523017e792fe31affa7cefe350beb95445d307";
 
 $agedcare2 = new stdClass();
-$agedcare2->language1="agedcare2";
+$agedcare2->language1="group1";
 $agedcare2->language1header="Language";
 $agedcare2->language2="english";
-$agedcare2->password="dd96ac0fb9ec61868d4a4d13cb7f9c57c48537c3";
+$agedcare2->password="be4f69bf25177a377d20437445e49a13cf3c65d5";
 
 $agedcare3 = new stdClass();
-$agedcare3->language1="agedcare3";
+$agedcare3->language1="group2";
 $agedcare3->language1header="Language";
 $agedcare3->language2="english";
-$agedcare3->password="dffbce6e07432e9fb06a06ce38cd033e2f78aaf0";
+$agedcare3->password="ca5ff4060839997ae17316da3095bc65d342f828";
 
 $agedcare4 = new stdClass();
-$agedcare4->language1="agedcare4";
+$agedcare4->language1="group3";
 $agedcare4->language1header="Language";
 $agedcare4->language2="english";
-$agedcare4->password="76e3b60ed04b36d666451339af15c91995744f66";
+$agedcare4->password="e157bec2c6b2adc3ce70aca06ae4f6dfc1ee91ee";
 
 $agedcare5 = new stdClass();
-$agedcare5->language1="agedcare5";
+$agedcare5->language1="group4";
 $agedcare5->language1header="Language";
 $agedcare5->language2="english";
-$agedcare5->password="618689d914d8e3e6d48f4185612f6ad53738dd74";
+$agedcare5->password="34ecfb436b7684370a510a48a27c42458e8f7850";
 
 
 $chinese = new stdClass();
@@ -63,7 +63,7 @@ $german = new stdClass();
  $sandpit->language2="english";
  $sandpit->password="8d83aa50b8b9a3b13b8a50b94b9d01ad7df3b9be";
 
- $languages = array($agedcare1, $agedcare2, $agedcare3, $agedcare4, $agedcare5, $chinese, $german, $hungarian, $ktunaxa, $sandpit);
+ $languages = array($presenter, $agedcare2, $agedcare3, $agedcare4, $agedcare5, $chinese, $german, $hungarian, $ktunaxa, $sandpit);
 
 
 ?>
