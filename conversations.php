@@ -36,19 +36,20 @@
 	$keyword = "0"; if (isset($_GET["keyword"])) {$keyword = $_GET["keyword"];}
 
 
-	$sql = "SELECT id,translation FROM ".$table."";
+	$sql = "SELECT id,translation, flag FROM ".$table."";
 	switch($filter){
 			case "topic": $sql.=" WHERE topic LIKE \"%".$keyword."%\" OR related LIKE \"%".$keyword."%\""; break; //search topics and related topics
 			default: $sql.=" WHERE ".$filter." LIKE \"%".$keyword."%\"  OR id=(SELECT max(id) FROM ".$table.")"; //always show last (empty row)
 	}
 	$sql.=" ORDER BY translation";
 	$error = null;
-echo $sql;
+//echo $sql;
+
 
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-			if(trim($row['translation'])!==""){
+			if(trim($row['translation'])!=="" && $row['flag']!=="X" ){
         $selectstr.="<option value='".$row['id']."'>".$row['translation']."</option>";
 			}
 	   }

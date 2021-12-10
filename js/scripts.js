@@ -1193,11 +1193,14 @@ function getConversations(){
         if(conversations.length>0){
             var str="";
             for (var m=0;m<conversations.length; m++){
-                for (var i=1; i<=6; i++){if (conversations[m]["entry"+i]===null){conversations[m]["entry"+i]="-";}}//replace null entries with
+                for (var i=1; i<=6; i++){
+                  if (conversations[m]["entry"+i]===null){conversations[m]["entry"+i]="-";}
+                }//replace null entries with
                 var cid=0;
                 cid = filters.findIndex(chunk=>chunk.translation===conversations[m].entry1);
                 //get the first part's index in the chunkbank array
-                //console.log("cid "+cid+" "+filters[cid].translation+" "+filters[cid].id+" ");
+
+                //console.log("cid "+cid+" "+filters[cid].translation+" "+filters[cid].id,filters[cid]);
                 str+='<div class="formrow">';
                 str+='<div class="formcol5"><div class="formcontent">'+(m+1)+'</div></div>';
                 str+='<div class="formcol15"><div class="formcontent">'+conversations[m].entry1+'</div></div>';
