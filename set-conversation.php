@@ -6,12 +6,12 @@ require_once("settings.php");
 $table = $_GET["table"];
 
 $id=0;
-$var1 = intval($_GET["var1"]); if ($var1===0){$var1=1;}
-$var2 = intval($_GET["var2"]); if ($var2===0){$var2=1;}
-$var3 = intval($_GET["var3"]); if ($var3===0){$var3=1;}
-$var4 = intval($_GET["var4"]); if ($var4===0){$var4=1;}
-$var5 = intval($_GET["var5"]); if ($var5===0){$var5=1;}
-$var6 = intval($_GET["var6"]); if ($var6===0){$var6=1;}
+$var1 = intval($_GET["var1"]); 
+$var2 = intval($_GET["var2"]);
+$var3 = intval($_GET["var3"]);
+$var4 = intval($_GET["var4"]);
+$var5 = intval($_GET["var5"]);
+$var6 = intval($_GET["var6"]);
 
 
 if ($id!==0) {

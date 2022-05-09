@@ -63,13 +63,7 @@ $german = new stdClass();
  $sandpit->language2="english";
  $sandpit->password="8d83aa50b8b9a3b13b8a50b94b9d01ad7df3b9be";
 
- $umpila = new stdClass();
- $umpila->language1="umpila";
- $umpila->language1header="Language";
- $umpila->language2="english";
- $umpila->password="bbad22e4eb8bbb6b358cd9b9e5ad8f51ee837ae0";
-
- $languages = array($presenter, $agedcare2, $agedcare3, $agedcare4, $agedcare5, $chinese, $german, $hungarian, $ktunaxa, $sandpit, $umpila);
+ $languages = array($presenter, $agedcare2, $agedcare3, $agedcare4, $agedcare5, $chinese, $german, $hungarian, $ktunaxa, $sandpit);
 
 
 ?>

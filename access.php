@@ -52,7 +52,8 @@ if (!$_SESSION['loggedIn']): ?>
         foreach ($languages as $x=>$value) {
           //echo ($value->language1);
           if ($sl==="" || $sl===$value->language1){
-            echo '<option value="'.$x.'">'.ucfirst($value->language1).'</option>';
+            if ($value->language1 === 'umpila') { $displayLanguage = 'Ngampula Kuuku Pitaanchimana'; } else { $displayLanguage = $value->language1;}
+            echo '<option value="'.$x.'">'.ucfirst($displayLanguage).'</option>';
           }
         }
         ?>

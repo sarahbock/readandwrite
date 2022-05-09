@@ -121,7 +121,7 @@
                          }
 												$fStr.='<option value="0">============</option>';
  												$fStr.='<option value="0">SORT BY</option>';
-                        $fStr.='<option value="sort1"'; if ($filter=="sort1"){$fStr.= ' selected';}  $fStr.='>'.$language1U.'</option>';
+                        $fStr.='<option value="sort1"'; if ($filter=="sort1"){$fStr.= ' selected';}  $fStr.='>Language</option>';
                         $fStr.='<option value="sort2"'; if ($filter=="sort2"){$fStr.= ' selected';}  $fStr.='>'.$language2U.'</option>';
                         $fStr.='<option value="sort3"'; if ($filter=="sort3"){$fStr.= ' selected';}  $fStr.='>Timestamp</option>';
                         $fStr.='<option value="0">============</option>';

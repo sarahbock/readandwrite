@@ -300,6 +300,7 @@ $(document).ready(function(){
     $(".language1").html(language1Cap); if (language1header!==""){$(".language1").html(language1header);}
     $(".language2").html(language2Cap);
     $("title").html(language1Cap+" Record and Write");
+    (language1Cap==="Umpila") ? $("title").html("Ngampula Kuuku Pitaanchimana: Record and Write") : $("title").html(language1Cap+" Record and Write");
 
     $("#topicSelect").val($("#topicSelect").data("selected"));
     $("#additionaltopic1Select").val($("#additionaltopic1Select").data("selected"));
@@ -1168,8 +1169,8 @@ function deleteFile(field,id,file){
 	var r = confirm("Are you sure you want to delete this file?");
 	if (r !== true) {return false;} else{
 		var type="sound"; if(field==="image"){type="image";} //set variables according to media type
-		show("DELETING FILE "+field+" "+id+" file "+file+" call "+apiPath+"deletefile.php?type="+type+"&file="+file);
-		$.get(apiPath+"delete-file.php?type="+type+"&file="+file, function() {})
+		show("DELETING FILE "+field+" "+id+" file "+file+" call "+apiPath+"delete-file.php?type="+type+"&file="+file+"&table="+language1);
+		$.get(apiPath+"delete-file.php?type="+type+"&file="+file+"&table="+language1, function() {})
 		.done(function(){
 			$("#"+field+"Upload").css("display","table-cell"); $("#"+field+"Show").css("display","none");//show upload image options and hide image display
 			$.get(apiPath+"set-data.php?id="+id+"&field="+field+"&table="+language1+"&value=", function() {});//write to db
