@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css?v=50">
+	<link rel="stylesheet" href="css/styles.css?v=30">
     <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
     <link href="css/all.min.css" rel="stylesheet">
     <?php require_once("settings.php"); ?>
@@ -17,9 +17,6 @@
         $jsString.='var language1="'.$language1.'"; ';
 				$jsString.='var language1header="'.$language1header.'"; ';
         $jsString.='var language2="'.$language2.'"; ';
-				$jsString.='var functions='.json_encode($functions).'; ';
-				$jsString.='var topics='.json_encode($topics).'; ';
-				$jsString.='var speakers='.json_encode($speakers).'; ';
         echo $jsString;
 
 
@@ -39,7 +36,7 @@
 		?>
 		</style>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/scripts.js?v=50"></script>
+    <script type="text/javascript" src="js/scripts.js?v=31"></script>
     <script src="js/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="js/rangy-core.js"></script>
     <script type="text/javascript" src="js/rangy-classapplier.js"></script>
@@ -63,7 +60,7 @@
 
 <div class="containerHead"> <!--fixed header-->
     <div class="modeNavigation">
-	  <h1><button class="backIcon" title="Go back" onclick="entryBack();"><i class="fas fa-arrow-alt-circle-left"></i></button> Edit phrase: <span class="chunkHeading"><?php echo(convertString($rows[0]['language']));?></span></h1>
+  <h1><button class="backIcon" title="Go back" onclick="entryBack();"><i class="fas fa-arrow-alt-circle-left"></i></button> Edit phrase: <span class="chunkHeading"><?php echo($rows[0]['language']);?></span></h1>
         <button class="flagIcon<?php if ($rows[0]['flag']==="1"){echo(" on");}?>" title="Toggle flag" onclick="toggleFlag(<?php echo($rows[0]['id']);?>);"><i class="fas fa-flag"></i></button>
     </div>
 </div>
@@ -90,7 +87,7 @@
     <!-- LANGUAGE 1 -->
     <div class="shading2">
         <div class="editLeft"><div><span class="language1"></span></div></div>
-        <div class="editRight"><div><div contenteditable="true" class="ta glossing" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);"  data-id="<?php echo($rows[0]['id']);?>" data-field="language" id="<?php echo($language1.$rows[0]['id']);?>" placeholder="Type phrase"><?php echo(convertString($rows[0]['language']));?></div></div></div>
+        <div class="editRight"><div><div contenteditable="true" class="ta glossing" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);"  data-id="<?php echo($rows[0]['id']);?>" data-field="language" id="<?php echo($language1.$rows[0]['id']);?>" placeholder="Type phrase"><?php echo($rows[0]['language']);?></div></div></div>
         <div class="clearBoth"></div>
     </div>
 
@@ -115,20 +112,20 @@
             <!--show audio player and info if there is a sound file-->
             <div id="soundfilenameShow" class="<?php if($rows[0]['soundfilename']===""){ echo("invisible");} ?>">
                 <audio controls="" id="">
-                    <source src="<?php if($rows[0]['soundfilename']!==""){ echo($mp3Path.convertString($rows[0]['soundfilename']));}?>" type="audio/mpeg"></audio>
-                		<span id=""><?php echo(convertString($rows[0]['soundfilename']));?></span> &nbsp;
+                    <source src="<?php if($rows[0]['soundfilename']!==""){ echo($mp3Path.$rows[0]['soundfilename']);}?>" type="audio/mpeg"></audio>
+                		<span id=""><?php echo($rows[0]['soundfilename']);?></span> &nbsp;
                      <select id="speakerSelect" name="" class="inline" data-id="<?php echo($rows[0]['id']);?>" data-selected="<?php echo(trim($rows[0]['speaker']));?>">
                     <?php
                      $speakerStr='<option value="0">Select a speaker</option>';//populate dropdown with data from array in settings.php
 										 $speakerStr.='<option value="M">Manage speakers</option>';
 										 $speakerStr.='<option value="0">---------------</option>';
                     foreach($speakers as $x => $x_value) {
-											if ($x_value){$speakerStr.='<option value="'.convertString($x_value).'">'.convertString($x_value).'</option>';}
+											if ($x_value){$speakerStr.='<option value="'.$x_value.'">'.$x_value.'</option>';}
 										}
 										echo $speakerStr;
                     ?>
             </select>
-                <input type="button" id="soundfilenamedelete"  value="Remove" class="uploadButton"  onclick="deleteFile('soundfilename','<?php echo($rows[0]['id']);?>','<?php echo str_replace("'", "\'", convertString($rows[0]['soundfilename'])); ?>');" >
+                <input type="button" id="soundfilenamedelete"  value="Remove" class="uploadButton"  onclick="deleteFile('soundfilename','<?php echo($rows[0]['id']);?>','<?php echo str_replace("'", "\'", $rows[0]['soundfilename']); ?>');" >
                 </div>
         </div>
         <div class="clearBoth"></div>
@@ -170,13 +167,6 @@
         <div class="clearBoth"></div>
     </div>
 
-		<!-- CREOLE TEXT (UMPILA ONLY)-->
-    <div class="shading2<?php if ($language1!=='umpila') echo' invisible';?>">
-        <div class="editLeft"><div>Creole</div></div>
-        <div class="editRight"><div><div contenteditable="true" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="meaning" placeholder="Type Creole here"><?php echo($rows[0]['meaning']);?></div></div></div>
-        <div class="clearBoth"></div>
-    </div>
-
     <!--TRANSLATION SOUND FILE -->
     <div class="shading2">
         <div class="editLeft"><div>Audio</div></div>
@@ -189,9 +179,9 @@
             <!--show audio player and info if there is a sound file-->
             <div id="translationsoundfilenameShow" class="<?php if($rows[0]['translationsoundfilename']===""){ echo("invisible");} ?>">
                 <audio controls="" id="">
-                    <source src="<?php if($rows[0]['translationsoundfilename']!==""){echo($mp3Path.convertString($rows[0]['translationsoundfilename']));}?>" type="audio/mpeg"></audio>
-                <span id=""><?php echo(convertString($rows[0]['translationsoundfilename']));?></span> &nbsp;
-                <input type="button" id="translationsoundfilenamedelete"  value="Remove" class="uploadButton"  onclick="deleteFile('translationsoundfilename','<?php echo($rows[0]['id']);?>','<?php echo(convertString($rows[0]['translationsoundfilename']));?>');" >
+                    <source src="<?php if($rows[0]['translationsoundfilename']!==""){echo($mp3Path.$rows[0]['translationsoundfilename']);}?>" type="audio/mpeg"></audio>
+                <span id=""><?php echo($rows[0]['translationsoundfilename']);?></span> &nbsp;
+                <input type="button" id="translationsoundfilenamedelete"  value="Remove" class="uploadButton"  onclick="deleteFile('translationsoundfilename','<?php echo($rows[0]['id']);?>','<?php echo($rows[0]['translationsoundfilename']);?>');" >
                 </div>
         </div>
         <div class="clearBoth"></div>
@@ -214,19 +204,16 @@
 			$topicStr=''; //populate dropdown with data from topic array in settings.php
 			$topicStr.='<option value="">Select a topic</option>';
 			$topicStr.='<option value="N">No topic</option>';
-			$topicStr.='<option value="M">Manage topics</option>';
+			$topicStr.='<option value="M">Add your own topic</option>';
 			foreach($topics as $x => $x_value) {
 				$topicStr.='<option value="0">---------------</option>';
 				$topicStr.='<option value="0">'.strtoupper($x_value["title"]).'</option>';
 				for ($i = 0; $i < count($x_value["subtopics"]); $i++){
-					if ($x_value["subtopics"][$i]['topic'] !== "") {
-						$topicStr.='<option value="'.$x_value["subtopics"][$i]['id'].'">'.$x_value["subtopics"][$i]['topic'].'</option>';
-					}
-					//$topicStr.='<option value="'.$x_value["subtopics"][$i].'">'.$x_value["subtopics"][$i].'</option>';
+					$topicStr.='<option value="'.$x_value["subtopics"][$i].'">'.$x_value["subtopics"][$i].'</option>';
 				}
 			 }
 			 $topicStr.='<option value="0">---------------</option>';
-			 $topicStr.='<option value="M">Manage topics</option>';
+			 $topicStr.='<option value="M">Add your own topic</option>';
 		?>
 
     <!-- TOPICS -->
@@ -293,10 +280,7 @@
     <div class="shading2">
         <div class="editLeft"><div><a data-fancybox data-src="#popup" href="javascript:void(0);"  title="More information"><i class="infoIcon fas fa-info-circle"></i></a><span class="language1"></span> keywords</div></div>
         <div class="editRight"><div>
-            <div contenteditable="true" id="keywordlanguage" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="keyword" placeholder="Separate keywords with commas"><?php if ($rows[0]['keyword']===""){
-                $langkeywordString = strtr($rows[0]['language'], array('.' => ' ','?' => ' '));
-                echo preg_replace('/\s+/', ',', $langkeywordString);
-                }else {echo(convertString($rows[0]['keyword']));} ?></div>
+            <div contenteditable="true" id="keywordlanguage" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="keyword" placeholder="Separate keywords with commas"><?php if ($rows[0]['keyword']===""){echo preg_replace('/\s+/', ',', $rows[0]['language']);}else {echo($rows[0]['keyword']);} ?></div>
         </div></div>
         <div class="clearBoth"></div>
     </div>
@@ -305,10 +289,7 @@
     <div class="shading2">
         <div class="editLeft"><div><a data-fancybox data-src="#popup" href="javascript:void(0);"  title="More information"><i class="infoIcon fas fa-info-circle"></i></a><span class="language2"></span> keywords</div></div>
         <div class="editRight"><div>
-            <div contenteditable="true" id="keywordtranslation" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="keywordtranslation" placeholder="Separate keywords with commas"><?php if ($rows[0]["keywordtranslation"]===""){
-                $translationString = strtr($rows[0]['keywordtranslation'], array('.' => ' ','?' => ' '));
-                echo preg_replace('/\s+/', ',', $translationString);
-                }else {echo(convertString($rows[0]["keywordtranslation"]));} ?></div>
+            <div contenteditable="true" id="keywordtranslation" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="keywordtranslation" placeholder="Separate keywords with commas"><?php if ($rows[0]["keywordtranslation"]===""){echo preg_replace('/\s+/', ',', $rows[0]['translation']);}else {echo($rows[0]["keywordtranslation"]);} ?></div>
         </div></div>
         <div class="clearBoth"></div>
     </div>

@@ -6,14 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css?v=10">
+	<link rel="stylesheet" href="css/styles.css?v=36">
 	<link rel="stylesheet" href="css/jquery.fancybox.min.css" />
 	<link href="css/all.min.css" rel="stylesheet">
 	<?php require_once("settings.php"); ?>
 	<script type="text/javascript">
 			<?php
 			//write settings to js
-			$jsString.='var apiPath="'.$apiPath.'"; ';
+			$jsString='var apiPath="'.$apiPath.'"; ';
 
 			$jsString.='var shellPath="'.$shellPath.'"; ';
 			$jsString.='var language1="'.$language1.'"; ';
@@ -57,62 +57,13 @@
 	?>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/scripts.js?v=20"></script>
+<script type="text/javascript" src="js/buttons.js?v=1"></script>
 
 <div id="container" data-id="<?php echo($id);?>">
 
-
-
-
-
-
-
-
-
-
-
-
-
 	<div class="containerHead"> <!--fixed header-->
-
-
-
 			<div class="modeNavigation">
-				<h1><button class="backIcon" title="Go back" onclick="conversationsBack();"><i class="fas fa-arrow-alt-circle-left"></i></button> Conversations</h1>
-
-					<!--Filter button-->
-					<div class="modeButtonBlock">
-				<div class="modeButton" id="modeButtonFilter" onclick="showMode('Filter');">
-							<i class="fas fa-filter"></i> <button onclick="showMode('Filter');">Filter / Sort</button>
-							<div class="modeButtonFull inline">
-									<!--First filter selection drop down (e.g. type of keyword)-->
-									<select class="modeButtonItem invisible" id="filter1" onchange="setFilter(1);">
-											<?php
-											$fStr=''; //populate dropdown with data from filter array in settings.php
-											$fStr.='<option value="0"'; if ($filter=="0"){$fStr.= ' selected';}  $fStr.='>Select an option</option>';
-											$fStr.='<option value="0">============</option>';
-											$fStr.='<option value="0">FILTER BY</option>';
-											 //$fStr.='<option value="search"'; if ($filter=="search"){$fStr.= ' selected';}  $fStr.='>Search term</option>';
-											 foreach($filters as $x => $x_value) {
-													 $fStr.='<option value="'.$x_value.'"'; if ($filter==$x_value){ $fStr.=' selected';} $fStr.='>'.$x.'</option>';
-											 }
-											$fStr.='<option value="0">============</option>';
-											$fStr.='<option value="0">SORT BY</option>';
-											$fStr.='<option value="sort1"'; if ($filter=="sort1"){$fStr.= ' selected';}  $fStr.='>'.$language1U.'</option>';
-											$fStr.='<option value="sort2"'; if ($filter=="sort2"){$fStr.= ' selected';}  $fStr.='>'.$language2U.'</option>';
-											$fStr.='<option value="sort3"'; if ($filter=="sort3"){$fStr.= ' selected';}  $fStr.='>Timestamp</option>';
-											$fStr.='<option value="0">============</option>';
-											$fStr.='<option value="clear">Clear filter</option>';
-											echo $fStr;
-											?>
-									</select>
-									<!--Second level filter (e.g. list of keywords)-->
-									<select class="modeButtonItem invisible<?php if ($keyword!=="0"){echo' inline';}?>" id="filter2" onchange="setFilter(2);"></select>
-									<!--Close button-->
-									<div class="modeButtonItem"><button onclick="reloadPage();"><i class="fas fa-times-circle"></i></button></div>
-							</div>
-					</div>
-							 </div>
-
+			<h1><button class="backIcon" title="Go back" onclick="conversationsBack();"><i class="fas fa-arrow-alt-circle-left"></i></button> Conversations</h1>
 			</div>
 	</div>
 

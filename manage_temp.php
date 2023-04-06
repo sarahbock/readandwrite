@@ -14,7 +14,7 @@
     <script type="text/javascript">
         <?php
         //write settings to js
-        $jsString='var apiPath="'.$apiPath.'"; ';
+        $jsString.='var apiPath="'.$apiPath.'"; ';
         $jsString.='var language1="'.$language1.'"; ';
 				$jsString.='var language1header="'.$language1header.'"; ';
         $jsString.='var language2="'.$language2.'"; ';
@@ -23,7 +23,6 @@
     </script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/scripts.js?v=31"></script>
-		<script type="text/javascript" src="js/buttons.js?v=1"></script>
     <script src="js/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="js/rangy-core.js"></script> <!-- range and selection library - https://github.com/timdown/rangy-->
     <script type="text/javascript" src="js/rangy-classapplier.js"></script>
@@ -87,7 +86,7 @@
 		if ($item==="glossing"){
 
 			$str.='<th class="col4"><div contenteditable="false" class="ta">Category title</div></th>';
-			$str.='<th class="col3"><div contenteditable="false" class="ta">Colour</div></th>';
+			$str.='<th class="col3"><div contenteditable="false" class="ta">Colour (Hex)</div></th>';
 			$str.='<th class="col4"><div contenteditable="false" class="ta">Short description</div></th>';
 			$str.='<th class="col4"><div contenteditable="false" class="ta">Link for more info</div></th>';
 		} else if ($item==="topics"){

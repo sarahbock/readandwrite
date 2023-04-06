@@ -8,14 +8,21 @@ $item = $_GET["item"];
 $value = $_GET["value"];
 $table = $_GET["table"];
 
-if ($id!==0&& $item) {
+if ($id!==0 && $item) {
   $sql = 'DELETE from '.$table.'_'.$item.' WHERE id='.$id;
 
-  if ($item==="headings" && $value){
-		$sql = 'UPDATE '.$table.'_topics SET heading="" WHERE heading="'.$value.'"';
-	}
-echo $sql;
-	$conn->query($sql);
+  if ($item==="headings"){
+     $sql2 = 'DELETE from '.$table.'_topics WHERE heading="'.$id.'"';
+     $conn->query($sql2);
+  }
+
+
+    //if ($item==="headings" && $value ){
+		//   $sql = 'UPDATE '.$table.'_topics SET heading="" WHERE heading="'.$value.'"';
+	  //}
+
+
+  $conn->query($sql);
 
   //$item=substr($item, 0, -1);
   //$sql2= 'UPDATE '.$table.' SET '.$item.'="" WHERE '.$item.'='.$id;

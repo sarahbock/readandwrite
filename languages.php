@@ -31,6 +31,24 @@ $agedcare5->language1header="Language";
 $agedcare5->language2="english";
 $agedcare5->password="34ecfb436b7684370a510a48a27c42458e8f7850";
 
+$freshhope1 = new stdClass();
+$freshhope1->language1="freshhope1";
+$freshhope1->language1header="Language";
+$freshhope1->language2="english";
+$freshhope1->password="217b7fe93c2762c38e72a63203e7494f05011ec2";
+
+$freshhope2 = new stdClass();
+$freshhope2->language1="freshhope2";
+$freshhope2->language1header="Language";
+$freshhope2->language2="english";
+$freshhope2->password="4313ae1fce5898fc412ee1e5a1374785a35b664b";
+
+$gathang = new stdClass();
+$gathang->language1="gathang";
+$gathang->language1header="Language";
+$gathang->language2="english";
+$gathang->password="520efa8ca152e11c21fd0bcb4fdd03b65bd01b51";
+
 
 $chinese = new stdClass();
 $chinese->language1="chinese";
@@ -51,6 +69,12 @@ $german = new stdClass();
  $hungarian->language2="english";
  $hungarian->password="2195cb035b3890987afc53bed8a8339128caab3c";
 
+ $hindi = new stdClass();
+ $hindi->language1="hindi";
+ $hindi->language1header="";
+ $hindi->language2="english";
+ $hindi->password="6f1c601a03a181f1e34d951ad606b5c49e99f02f";
+
  $ktunaxa = new stdClass();
  $ktunaxa->language1="ktunaxa";
  $ktunaxa->language1header="";
@@ -69,7 +93,7 @@ $german = new stdClass();
  $umpila->language2="english";
  $umpila->password="bbad22e4eb8bbb6b358cd9b9e5ad8f51ee837ae0";
 
- $languages = array($presenter, $agedcare2, $agedcare3, $agedcare4, $agedcare5, $chinese, $german, $hungarian, $ktunaxa, $sandpit, $umpila);
+ $languages = array($presenter, $agedcare2, $agedcare3, $agedcare4, $agedcare5, $chinese, $freshhope1, $freshhope2, $gathang, $german, $hindi, $hungarian, $ktunaxa, $umpila, $sandpit);
 
 
 ?>

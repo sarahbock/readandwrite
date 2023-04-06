@@ -14,12 +14,14 @@ h2{font-size: 1.2em;    background-color: #404040;  text-transform: uppercase;  
 a{color: #0B0B14;}
 button{cursor: pointer;margin: 0; width: auto;  background-color: #7e848a;  border: none; color: #FFF; padding: 1em;}
 input[type="file"]{background-color: #7e848a;  border: none; color: #FFF; padding: 1em;}
-input[type="submit"],input[type="password"], input[type="text"], input[type="button"], input[type="file"], textarea, select{font-size: 1em; font-family: 'Arial', sans-serif; font-weight:400;}
+input[type="submit"],input[type="password"], input[type="text"], input[type="button"], input[type="file"], textarea, select{font-family: 'Arial', sans-serif; font-weight:400;}
 input[type="button"].uploadButton{background-color: #404040;  border: none; color: #FFF; padding: 1em; margin-left: 1em; cursor: pointer;}
+input[type="submit"]{background-color: #404040;  border: none; color: #FFF; padding: 1em; margin-left: 1em; cursor: pointer; -webkit-appearance: none;}
 input[type="button"].uploaded{background-color: #24805d; }
 
 textarea, .ta{width: 94%;  max-width: 94%;   background: none; padding: .5em;margin: 0;     border: 1px solid #d0d0d0;       word-break: break-word;}
 textarea:disabled, .ta.disabled {border:none; resize:none;    padding: .5em; opacity: 1!important; cursor: pointer;}
+body#entries #entriesTable .ta{width:auto; max-width: none;}
 ::-webkit-input-placeholder {   font-style: italic;}
 :-ms-input-placeholder {font-style: italic; }
 ::placeholder {font-style: italic;}
@@ -27,14 +29,14 @@ audio{vertical-align: middle; margin-right: 1em; position: relative;     z-index
 table {width: 100%;     border-spacing: 0;}
 tr:nth-child(even) {background-color: #f7f7f7;}
 tr:nth-child(odd){background-color: #fefeff;}
-body#entries #entriesTable tr{display: flex; align-items: center;}
+body#entries #entriesTable tr{display: flex; align-items: flex-start;}
 hr{margin: 0;   border: .5em solid #7e848a;}
 
 .containerHead{position: fixed;   width: 95%;  top: 0;    border-top: 1em solid #7e848a;    z-index: 2;}
 .containerHead.modeView{border-color: #9db2ca;}
-.modeNavigation h1{position: absolute;   top: 0;   font-size: 1.2em; color: #404040; text-transform: uppercase; }
-.modeNavigation{       padding: 1em;background-color: #d4d4d4; text-align: right;     height: 3em;}
-.modeNavigationButtons{   }
+.modeNavigation h1{margin-right:10px; font-size: 1.2em; color: #404040; text-transform: uppercase; }
+.modeNavigation{       padding: 1em;background-color: #d4d4d4;    height: 3em;     display: flex; justify-content: flex-end; align-items: center;}
+.modeNavigationButtons{ flex: 1; display: flex; justify-content: flex-end; align-items: center;  }
 .modeNavigation button{    background: none;   color: #7e848a;padding: 0;}
 
 .chunkHeading{text-transform: lowercase;}
@@ -42,20 +44,20 @@ hr{margin: 0;   border: .5em solid #7e848a;}
 .chunkHeading div{display: inline;}
 
 .modeButtonBlock{display: inline-block;}
-.modeButton{    display: inline;       margin: 0 1em 0 0; background-color: #FFF;  padding: 1em;   cursor: pointer;color: #7e848a;  }
+.modeButton{ display: flex; align-items: center; background-color: #FFF;  padding: 1em;   cursor: pointer;color: #7e848a;margin: 0 10px;  }
 .modeButton.modeView{    border: .2em solid #9db2ca;}
 .modeButton button.modeView, .modeButton input.modeView{color:black; font-weight:bold;}
 .modeButtonLast{margin-right:0;}
-#modeButtonSearch{cursor: none;}
+#modeButtonSearch{cursor: none; padding:0 1em;}
 .modeButton .fas{color: #7e848a;     margin-right: 1em;}
-.modeButtonClose{ margin: 0 -.2em 0 0; background-color:#404040;  padding: 1em;  cursor: pointer; display:none;}
-.modeButtonClose .fas{color: #FFF;}
-.modeButtonItem{display:inline;    width: auto; border: none;  border-radius: 0; height: auto;    font-size: .8em; color: #7e848a;}
-input[type="text"].modeButtonItem{    width: auto;  padding: 1em; margin: 0;height: auto;     font-size: .8em;}
+.modeButtonClose{cursor: pointer; display:none; margin-right: 10px;}
+
+.modeButtonItem{width: auto; border: none;  border-radius: 0; height: auto;   color: #7e848a;}
+input[type="text"].modeButtonItem{    width: auto;      padding: 1em; margin: 0;height: auto;    }
 input[type="file"].modeButtonItem{    width: auto;  padding: 0; margin: 0 1em;height: auto;    font-size: .8em;}
 .modeButtonFull{display: none;}
 
-#filter1, #filter2{padding: 1em; margin-left: .5em; background-color: #f4f4f4;}
+#filter1, #filter2{margin-left: .5em; background-color: #f4f4f4; }
 #filter2 .selectBold{color: #000;}
 
 .tableHeader{    background-color: #404040;}
@@ -68,11 +70,12 @@ input[type="file"].modeButtonItem{    width: auto;  padding: 0; margin: 0 1em;he
 .col4{width:25%;}
 .col5{width:15%;}
 
+
 .containerScroll{    margin-top: 9.1em;}
 
 td.col1,td.col2,td.col3,td.col4,td.col5{float:none;vertical-align: top;     padding: 15px 0;}
 table .fas{ font-size: 1.2em;color: #404040;}
-table button{margin-right: 1em;}
+table button{margin:10px;}
 table .fas.disabled{  cursor:default;}
 
 .glossContainer{    display: inline-block;}
@@ -110,8 +113,10 @@ table.glossHelperTable .fas{margin: 0;}
 body#entries #glossHelper{    height: 80%; overflow-y: scroll;}
 body#entries .tableHeader{display: flex; align-items: center;}
 body#entries .col1, body#entries .col2, body#entries .col3, body#entries .col4, body#entries .col5{flex: 3; width: auto;}
-body#entries .tableHeader .col1, body#entries .tableHeader .col2, body#entries .tableHeader .col3, body#entries .tableHeader .col4, body#entries .tableHeader .col5{flex: 3; width: auto;}
+body#entries .tableHeader .col1, body#entries .tableHeader .col2, body#entries .tableHeader .col3, body#entries .tableHeader .col4, body#entries .tableHeader .col5{flex: 3; width: auto; padding-left: 0.5em;}
 body#entries .col1, body#entries .tableHeader .col1{flex:1;}
+
+.actionButtonsHolder{display: flex;     justify-content: flex-start;flex-wrap: wrap;}
 
 .infoIcon{color: #404040; margin-left: .5em; font-size: 1.3em; float:right;}
 
@@ -136,11 +141,11 @@ body#entries .col1, body#entries .tableHeader .col1{flex:1;}
 
 /*EDIT PAGE*/
 body#edit .containerScroll{margin-top: 4.5em;}
-.flagIcon{float: right; } .flagIcon .fas{color: #FFF; font-size:2em;     opacity: .2; } .flagIcon.on .fas{opacity: 1; }
+.flagIcon .fas{color: #FFF; font-size:2em;     opacity: .2; } .flagIcon.on .fas{opacity: 1; }
 .backIcon{    vertical-align: middle; margin-right: 1em; } .backIcon .fas{color: #FFF; font-size:2em;  }
 body#edit #glossHelper{ top: 7.6em; position: absolute;}
 body#edit #glossHelperArrow{display: block; top: 6em; position: absolute;}
-body#edit .modeNavigation{background-color: #404040; height: 1.5em;}
+body#edit .modeNavigation{background-color: #404040; height: 1.5em; justify-content: space-between;}
 body#edit .modeNavigation h1{color: #FFF; padding-top: .2em;     text-align: left;     overflow: hidden;   white-space: nowrap;   max-width: 90%;}
 .editLeft, .editRight{width:15%; float:left; display: table; min-height: 5.4em; }
 .editLeft div, .editRight div{display: table-cell; vertical-align: middle;    text-align: left; padding: 0 0 0 1em; }
@@ -158,30 +163,52 @@ body#edit .advanced{display: none;}
 body#edit #advancedTopicsArrow{ text-decoration:underline;background-color: inherit; color: #FFF;font-size: inherit;}
 
 /*MANAGE PAGE*/
-body#manage .containerScroll{margin-top: 4.5em;}
-body#manage .modeNavigation{background-color: #404040; height: 1.5em;}
-body#manage .modeNavigation h1{color: #FFF; padding-top: .2em;}
-body#manage tr{display: flex; justify-content: space-between; align-items: center;}
-body#manage tr.glossingRow{align-items: flex-start;}
-body#manage .col1, body#manage .col2, body#manage .col3, body#manage .col4,body#manage .col5{}
-body#manage .col1{font-size: .7em; flex:1;}
-body#manage tr.glossingRow .col1 {flex:0; font-size:inherit;     padding-top: 1.5em;min-width: 35px;}
-body#manage .col2{flex:5;}
-body#manage .col3{flex:1;}
-body#manage .col4{flex:2;}
-body#manage .col0{flex:0;}
-body#manage select{width: 90%;}
-body#manage .formcontent{padding-top:1.5em;}
-body#manage .ta{    width: auto; background-color: #FFF;     margin-right: .5em;}
-body#manage .formrowheader .ta{background: none; padding: 2em 0 1em 0;  border: 0; font-weight: bold; color: #404040;}
-body#manage .fixedformheader{    position: fixed;  width: 95%;  height: 80px;  background-color: #dfe0e0;}
-body#manage .glossingRow:nth-child(2), body#manage .speakersRow:nth-child(2), body#manage .topicsRow:nth-child(2), body#manage .headingsRow:nth-child(2), body#manage .functionsRow:nth-child(2){     margin-top: 80px;}
-body#manage .hex::before{content: "#";}
+body#manage .containerScroll, body#managetopics .containerScroll{margin-top: 4.5em;}
+body#manage .modeNavigation, body#managetopics .modeNavigation{background-color: #404040; height: 1.5em; justify-content: space-between;}
+body#manage .modeNavigation h1, body#managetopics .modeNavigation h1{color: #FFF; padding-top: .2em;}
+body#manage tr, body#managetopics tr{display: flex; justify-content: space-between; align-items: center;}
+body#manage tr.glossingRow, body#managetopics tr.glossingRow{align-items: flex-start;}
+body#manage .col1, body#managetopics .col1{font-size: .7em; flex:1;}
+body#manage tr.glossingRow .col1, body#managetopics  tr.glossingRow .col1{flex:0; font-size:inherit;     padding-top: 1.5em;min-width: 35px;}
+body#manage .col2, body#managetopics .col2{flex:5;}
+body#manage .col3, body#managetopics .col3{flex:1;}
+body#manage .col4, body#managetopics .col4{flex:2;}
+body#manage .col0, body#managetopics .col0{flex:0;}
+body#manage select, body#managetopics select{width: 90%;}
+body#manage .formcontent, body#managetopics .formcontent{padding-top:1.5em;}
+body#manage .formcontent.white, body#managetopics .formcontent.white{color:#FFFFFF;}
+body#manage .ta, body#managetopics .ta{    width: auto; background-color: #FFF;     margin-right: .5em;}
+body#manage .formrowheader .ta, body#managetopics .formrowheader .ta{background: none; padding: 2em 0 1em 0;  border: 0; font-weight: bold; color: #404040;}
+body#manage .fixedformheader, body#managetopics .fixedformheader{    position: fixed;  width: 95%;  height: 80px;  background-color: #dfe0e0;}
+body#manage .glossingRow:nth-child(2), body#manage .speakersRow:nth-child(2), body#manage .topicsRow:nth-child(2), body#manage .headingsRow:nth-child(2), body#manage .functionsRow:nth-child(2), body#managetopics .topicsRow:nth-child(2), body#managetopics .headingsRow:nth-child(2){     margin-top: 80px;}
+body#manage .hex::before, body#managetopics .hex::before{content: "#";}
+
+body#managetopics .manageTopics {}
+body#managetopics .manageTopics tr{padding: 5px 20px;min-height: 50px;}
+body#managetopics .manageTopics tr.heading{background-color: #dfe0e0; margin-top:20px;}
+body#managetopics .manageTopics th { margin: 10px 0;}
+body#managetopics .manageTopics th .ta{}
+body#managetopics .manageTopics td.displayFlex {display: flex;}
+body#managetopics .manageTopics .itemName {flex:2; display: flex;}
+body#managetopics .manageTopics td.itemName .ta {margin-left:50px;}
+body#managetopics .manageTopics .itemImage {flex:1; display: flex;}
+body#managetopics .manageTopics .itemDelete {flex:1; display: flex;justify-content: flex-end;}
+body#managetopics .manageTopics .itemMove {flex:2; display: flex; justify-content: center;}
+body#managetopics .manageTopics td .ta{}
+body#managetopics .manageTopics .addIcon{ }
+body#managetopics .manageTopics .deleteIcon{margin-left:10px; }
+body#managetopics .manageTopics .ta_buttons{ display: flex; align-items: center;}
+body#managetopics .manageTopics .ta_cancel, body#manage .manageTopics .ta_add{  padding:10px; margin: 10px 0;}
+body#managetopics .manageTopics .ta_add{ background-color: #24805d; color: #FFF;}
+body#managetopics .manageTopics .image{ display:flex;}
+body#managetopics .manageTopics .image.invisible{ display:none;}
+body#managetopics .manageTopics .image label{ display:flex; align-items: center; margin-right:10px;}
+
 
 
 /*CONVERSATIONS PAGE*/
 body#conversations .containerScroll{margin-top: 4.5em;}
-body#conversations .modeNavigation{background-color: #404040; height: 1.5em; padding-top: 1.5em;}
+body#conversations .modeNavigation{background-color: #404040; height: 1.5em; justify-content: space-between;}
 body#conversations .modeNavigation h1{color: #FFF; padding-top: .2em;}
 body#conversations #conversationsList{    margin-bottom: 2em;}
 body#conversations #container{ background-color: #FFF; width:95%; margin: 0 auto; padding-bottom: 5em;}
@@ -210,8 +237,9 @@ body#conversations a.deleteLink {  color: #cf1f2e;  text-decoration: none;  font
     font-weight: bold;
     text-transform: uppercase;}
 
-.thumbnail{width: 50px; height: auto; vertical-align: middle;}
+.thumbnail{width: 50px; height: auto; max-height: 80px; vertical-align: middle;}
 .inline{display: inline;}
+.flex{display: flex;}
 .lowercase{text-transform: lowercase;}
 .invisible, div.invisible{display: none;}
 .clearBoth{clear: both;}
@@ -226,9 +254,14 @@ body#conversations a.deleteLink {  color: #cf1f2e;  text-decoration: none;  font
 .paddedLeft{    padding-left: 1em;}
 .nostyle{background: none;color: inherit;padding: 0; text-align: left; font-size: inherit; font-weight: inherit;}
 .selected{background-color: #24805d; }
-@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+  #modeButtonReset{display: none;}
+
+@media only screen and (max-width: 40em) {
 	#container {width:100vw; }
 	button{padding: 1em 0; margin: 0; width: auto;}
+  .containerHead{width:100%}
+  body#entries .tableHeader { font-size: 12px; }
+
 }
 @media (max-width:1200px) {
   .modeNavigationButtons{font-size:10px;}

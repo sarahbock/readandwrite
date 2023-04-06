@@ -1,26 +1,5 @@
-function getQueryVariable(variable){
-       var query = window.location.search.substring(1);
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){
-                   var str=decodeURIComponent(pair[1]);
-                   return str;
-               }
-       }
-       return(false);
-}
 
-function editConversations(id){
-    var url="conversations.php?id="+id;
-    var URLsearch=$('.searchInput').val();
-    var URLfilter; URLfilter=getQueryVariable("filter");
-    var URLkeyword; URLkeyword=getQueryVariable("keyword");
-    if (URLfilter){url+="&filter="+URLfilter;}
-    if (URLkeyword){url+="&keyword="+URLkeyword;}
-    if (URLsearch!==""){url+="&search="+URLsearch;}
-    window.location.href=url;
-}
+
 
 
 var lingKeyword1=[
@@ -421,11 +400,6 @@ $(document).ready(function(){
                 if ($("#ling4Select").val()!=="0"&&$("#ling4Select").val()!==""){value+=","+$("#ling4Select").val();} //add 4th dropdown value to value
                 saveField(id,field,value); //save to DB
             }
-        } else if (field.indexOf("changeHeading")!==-1){
-            //change heading in manage topics
-            if (value==="0"){ return false;}
-            //console.log(value);
-            saveField(id,"changeHeading",value); //save to DB
         } else {
             //all other selects
             saveField(id,field,value);
@@ -531,7 +505,7 @@ function textAreaFocus(e){
         //show("textarea data id "+$(e).data("id")+ " last row "+$('#entriesTable tr:last').data("id"));
         if ($(e).data("id")===$('#'+table+' tr:last').data("id")) {
             show("Adding empty row");
-            addRow(null);
+            addRow();
         }
     }
 	cleanClipboard();
@@ -572,6 +546,7 @@ function textAreaBlur(e){
     if ($(e).hasClass("hex")===true){  $(e).closest('tr').css("background-color","#"+$(e).html());  } //apply new hex code to table row
     //value=encodeURIComponent(value);
     saveField(id,field,value);
+    //show(id+" field "+field+" value "+value);
 
     if (language1==="sandpit"||language1==="ktunaxa"||language1==="german"||language1==="chinese"){
       //copy English (language 2) to explanation if explanation is empty
@@ -744,7 +719,6 @@ function getSecondFilterValues(filter,keyword){
     //this populates the 2nd filter dropdown according to what they have selected in the 1st filter dropdown
     //show("Filters "+filter+" Filters: "+JSON.stringify(filters));
     show("getSecondFilterValues for filter "+filter+" and keyword "+keyword);
-    //show(filters)
 
     var filterArray=[]; //set up new array to store the values e.g. the different keywords
     for (var b=0; b<filters.length; b++){ //loop through the chunkbank database to get all the items for the selected filter e.g. all the english keywords
@@ -807,13 +781,8 @@ function getSecondFilterValues(filter,keyword){
         item.subtopics.forEach((item, i) => {
           //make bold if any phrase has been tagged with this topic
           if(item!==""&&item!=="0"&&item){
-            classStr="";
-            if (item.id) {
-              if(filterArray.indexOf(item.id)!==-1){classStr=' class="selectBold"';}
-            } else {
-              if(filterArray.indexOf(item.toLowerCase())!==-1){classStr=' class="selectBold"';}
-            }
-            filterSelectStr+='<option value="'+ (item.id ? item.id : item) +'"'+classStr+'>'+(item.topic ? item.id : item)+'</option>';
+            classStr="";  if(filterArray.indexOf(item.toLowerCase())!==-1){classStr=' class="selectBold"';}
+            filterSelectStr+='<option value="'+item+'"'+classStr+'>'+item+'</option>';
           }
         });
       });
@@ -854,7 +823,18 @@ function reloadPage(filter,keyword){
     window.location.href=url;
 }
 
-
+function getQueryVariable(variable){
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){
+                   var str=decodeURIComponent(pair[1]);
+                   return str;
+               }
+       }
+       return(false);
+}
 
 
 function showSearchResults(word){
@@ -1107,8 +1087,7 @@ function entryBack(){
 
 function manageSelect(field){ //from edit page select dropdowns
   var id=$("#container").data("id");
-  var url = (field === 'topic') ? "manage_topics.php?id="+id : "manage.php?id="+id;
-  //alert(field);
+  var url="manage.php?id="+id;
   var URLsearch=$('.searchInput').val();
   var URLfilter; URLfilter=getQueryVariable("filter");
   var URLkeyword; URLkeyword=getQueryVariable("keyword");
@@ -1157,49 +1136,16 @@ function conversationsBack(){
 }
 
 function deleteItem(id, item, value){
-  switch (item){
-    case 'topics':
-      if($("#deleteTopic"+id).hasClass("disabled")){return;}
-      break;
-    case 'headings':
-      if($("#deleteHeading"+id).hasClass("disabled")){return;}
-      break;
-    default:
-      if($("#delete"+id).hasClass("disabled")){return;}
-  }
-  var r = confirm("Are you really sure you want to delete this?");
-  if (r !== true) {return false;} else{
-		show("DELETING ITEM "+apiPath+"delete-item.php?id="+id+"&table="+language1+"&item="+item+"&value="+value);
+  if($("#delete"+id).hasClass("disabled")){return;}
+	var r = confirm("Are you really sure you want to delete this "+item.slice(0, -1)+"?"); //remove s from plural string
+	if (r !== true) {return false;} else{
+		show("DELETING ITEM "+id+" call "+apiPath+"delete-item.php?id="+id+"&item="+item+"&value="+value);
 		$.get(apiPath+"delete-item.php?id="+id+"&table="+language1+"&item="+item+"&value="+value, function() {})
 		.done(function(){
-      if (item=== "topics" || item=== "headings"){
-        window.location.reload();
-      } else {
-        $("#tableRow"+id).remove();
-      }
-    })
-		.fail(function() { alert("We couldn't remove the entry from the database. Please contact Elearn Australia on 0424 045 479.");});
-    if (value) {
-      //delete image
-      $.get(apiPath+"delete-file.php?type=image&file="+value+"&table="+language1, function() {})
-    }
+      $("#tableRow"+id).remove();
+		})
+		.fail(function() { alert("We couldn't entry from the database. Please contact Elearn Australia on 0424 045 479.");});
 	}
-}
-
-function addTopic(headingId){
-  console.log(apiPath+"set-data.php?id=0&field=topics&table="+language1+"_topics&value="+headingId);
-  $.get(apiPath+"set-data.php?id=0&field=topics&table="+language1+"_topics&value="+headingId, function() {})//write to db
-  .done(function(){
-    window.location.reload();
-  });
-}
-
-function addHeading(){
-  console.log(apiPath+"set-data.php?id=0&field=headings&table="+language1+"_headings&value=");
-  $.get(apiPath+"set-data.php?id=0&field=headings&table="+language1+"_headings&value=", function() {})//write to db
-  .done(function(){
-    window.location.reload();
-  });
 }
 
 //====================================================================== UPLOAD //
@@ -1210,73 +1156,42 @@ function uploadFile(field,id){
 	show("UPLOAD FILE "+field+" "+id+" filename "+files[0].name);
 	if(files.length > 0 ){//check there is file data
 		var formData = new FormData();//create a form data object
-    if (files[0].name.indexOf('"')!==-1||files[0].name.indexOf("'")!==-1||files[0].name.indexOf(" ")!==-1){
-      alert("Make sure the name of the file does not include any punctuation symbols or spaces."); return false;
-    }
+    if (files[0].name.indexOf('"')!==-1||files[0].name.indexOf("'")!==-1){alert("Make sure the name of the file does not include any punctuation symbols."); return false;}
 		formData.append("file", files[0]); //add the file to the file key in the form data object
 		var xhttp = new XMLHttpRequest(); //set up AJAX request
-		var xurl="upload-soundfile.php?dir="+language1;
-    if (field==="image" || field.indexOf("image")!==-1 ) {
-      xurl="upload-imagefile.php?dir="+language1;
-    } //set AJAX script according to media type
+		var xurl="upload-soundfile.php?dir="+language1; if(field==="image"){xurl="upload-imagefile.php?dir="+language1;} //set AJAX script according to media type
 		xhttp.open("POST", xurl, true); //send AJAX request
 		xhttp.onreadystatechange = function() { //success callback
 			if (this.readyState == 4 && this.status == 200) {
 				var response = this.responseText;
 				if(response == 1){
 					$("#"+field+"upload").addClass("uploaded").val("Uploaded");//change upload button to green
-          //$sql = 'UPDATE '.$table.' SET '.$field.'="'.$value.'", timestamp=NOW() WHERE id='.$id;
-          if (field.indexOf("imageHeading")!==-1) {
-            //show(apiPath+"set-data.php?id="+id+"&field=image&table="+language1+"_headings&value="+files[0].name);
-            $.get(apiPath+"set-data.php?id="+id+"&field=image&table="+language1+"_headings&value="+files[0].name, function() {})//write to db
-            .done(function(){window.location.reload();});//reload page to show media players
-          } else if (field.indexOf("imageTopic")!==-1) {
-            $.get(apiPath+"set-data.php?id="+id+"&field=image&table="+language1+"_topics&value="+files[0].name, function() {})//write to db
-            .done(function(){window.location.reload();});//reload page to show media players
-          } else {
-            $.get(apiPath+"set-data.php?id="+id+"&field="+field+"&table="+language1+"&value="+files[0].name, function() {})//write to db
-            .done(function(){window.location.reload();});//reload page to show media players
-          }
-				} else {
-          if (language1 === 'freshhope1' || language1 === 'freshhope2' || language1 === 'gathang') {
-            alert("There was a problem uploading the file. Check that the file does not exceed 1MB.");
-          } else {
-            alert("There was a problem uploading the file. Check that the file does not exceed 100kb.");
-          }
+					$.get(apiPath+"set-data.php?id="+id+"&field="+field+"&table="+language1+"&value="+files[0].name, function() {})//write to db
+          .done(function(){window.location.reload();});//reload page to show media players
+				}else{
+					alert("There was a problem uploading the file. Check that the file does not exceed 100kb.");
 				}
 			}
 		};
 		xhttp.send(formData); //pass form data object to request
-	} else {
+	}else{
 		alert("Please select a file"); //if no file in the file input
 	}
 }
 
-
 function deleteFile(field,id,file){
-//onclick="deleteFile(\'imageHeading\',\''.$heading['id'].'\',\''.$heading['image'].'\');">';
+
 	var r = confirm("Are you sure you want to delete this file?");
 	if (r !== true) {return false;} else{
-		var type="sound"; //set variables according to media type
-    if (field==="image" || field.indexOf("image")!==-1){
-      type="image";
-    }
+		var type="sound"; if(field==="image"){type="image";} //set variables according to media type
 		show("DELETING FILE "+field+" "+id+" file "+file+" call "+apiPath+"delete-file.php?type="+type+"&file="+file+"&table="+language1);
-    $.get(apiPath+"delete-file.php?type="+type+"&file="+file+"&table="+language1, function() {})
-    .done(function(){
-      if (field.indexOf("imageHeading")!==-1) {
-        $("#imageHeadingSet"+id).css("display","flex"); $("#imageHeadingShow"+id+",#imageHeadingUpload"+id).css("display","none");//show upload image options and hide image display
-        $.get(apiPath+"set-data.php?id="+id+"&field=image&table="+language1+"_headings&value=", function() {})//write to db
-      } else if (field.indexOf("imageTopic")!==-1) {
-        $("#imageTopicSet"+id).css("display","flex"); $("#imageTopicShow"+id+",#imageTopicUpload"+id).css("display","none");//show upload image options and hide image display
-        $.get(apiPath+"set-data.php?id="+id+"&field=image&table="+language1+"_topics&value=", function() {})//write to db
-      } else {
-        $("#"+field+"Upload").css("display","table-cell"); $("#"+field+"Show").css("display","none");//show upload image options and hide image display
-        $.get(apiPath+"set-data.php?id="+id+"&field="+field+"&table="+language1+"&value=", function() {});//write to db
-        if (field==="soundfilename"){$.get(apiPath+"set-data.php?id="+id+"&field=speaker&table="+language1+"&value=", function() {});}//remove speaker if removing sound file
-      }
-    })
-    .fail(function() { alert("We couldn't delete the file from the database.");});
+		$.get(apiPath+"delete-file.php?type="+type+"&file="+file+"&table="+language1, function() {})
+		.done(function(){
+			$("#"+field+"Upload").css("display","table-cell"); $("#"+field+"Show").css("display","none");//show upload image options and hide image display
+			$.get(apiPath+"set-data.php?id="+id+"&field="+field+"&table="+language1+"&value=", function() {});//write to db
+			if (field==="soundfilename"){$.get(apiPath+"set-data.php?id="+id+"&field=speaker&table="+language1+"&value=", function() {});}//remove speaker if removing sound file
+		})
+		.fail(function() { alert("We couldn't delete the file from the database.");});
 	}
 }
 
@@ -1375,7 +1290,7 @@ function saveField(id,field,value){
     if(value.length>characterLimit){  errorSave("Character limit exceeded"); return; }//return and show error if character limit exceeded
 
     if($("body").attr("id")==="entries" || $("body").attr("id")==="edit"){
-      show("SAVE FIELD "+apiPath+"set-data.php?id="+id+"&field="+field+"&table="+language1+"&value="+value);
+      //show("SAVE FIELD "+apiPath+"set-data.php?id="+id+"&field="+field+"&value="+value);
       $.get(apiPath+"set-data.php?id="+id+"&field="+field+"&table="+language1+"&value="+value, function() {})
   		.done(function() {
         confirmSave();})
@@ -1403,7 +1318,8 @@ function saveField(id,field,value){
       $.get(apiPath+"set-item.php?id="+id+"&field="+field+"&table="+language1+"&value="+value+"&item="+item+"&replace="+replaceValue, function() {})
   		.done(function() {confirmSave(true);})
   		.fail(function() { });
-    } else if ($("body").attr("id")==="managetopics"){
+
+    } else if($("body").attr("id")==="managetopics"){
       //get previous value of textarea to replace these heading values in the topics table
       //var replaceValue=""; if (field==="heading"){replaceValue=oldValue;} oldValue="";
       if ( field==='heading' ) {
@@ -1416,16 +1332,9 @@ function saveField(id,field,value){
         $.get(apiPath+"set-item.php?id="+id+"&field=topic&table="+language1+"&value="+value+"&item=topics&replace=", function() {})
     		.done(function() {confirmSave(true);})
     		.fail(function() { });
-      } else if ( field === 'changeHeading'){
-        //changing heading for topic in manage topics page
-        show("SAVE FIELD "+apiPath+"set-item.php?id="+id+"&field=heading&table="+language1+"&value="+value+"&item=topics&replace=");
-        //$sql = 'UPDATE '.$table.'_'.$item.' SET '.$field.'="'.$value.'" WHERE id='.$id;
-        $.get(apiPath+"set-item.php?id="+id+"&field=heading&table="+language1+"&value="+value+"&item=topics&replace=", function() {})
-    		.done(function() {window.location.reload();})
-    		.fail(function() { });
       }
-    }
 
+    }
 }
 
 function writeCounters(){
@@ -1453,7 +1362,7 @@ function errorSave(msg){
 }
 
 function addRow(id){
-    //show("adding new row",id);
+    //show("adding new row");
     //show("add row "+$("#add"+id).hasClass("disabled")+" id "+id);
     if ($("#add"+id).hasClass("disabled")===true){return false;}//don't do anything if add button is disabled
 
@@ -1461,7 +1370,6 @@ function addRow(id){
     showQuick();
     //ENTRIES
     //insert empty row into db
-    console.log(apiPath+"set-data.php?id=0&table="+language1);
     $.get(apiPath+"set-data.php?id=0&table="+language1, function(data) {
         //get id of new inserted row
         var lastRow=$.trim(data);
@@ -1485,7 +1393,6 @@ function addRow(id){
         str+='<button class="nostyle" id="delete'+lastRow+'" onclick="deleteEntry(\''+lastRow+'\');" title="Delete"><i class="fas fa-trash-alt" data-id="'+lastRow+'"></i></button>';
         str+='</div></td>';
         str+='</tr>';
-        show(str)
         if (id){
             //insert under table row
             //show("inserting new row under the selected row "+ id);
@@ -1504,9 +1411,8 @@ function addRow(id){
       } else if($("body").attr("id")==="manage"){ //for manage page
     //MANAGE
     var item = $("#manageTable").data("field");
-    if(item==="glossing"){return false;} //don't add new rows for managing glossing
+    show(item); if(item==="glossing"){return false;} //don't add new rows for managing glossing
     //insert empty row into db
-    show(apiPath+"set-item.php?id=0&table="+language1+"&item="+item);
     $.get(apiPath+"set-item.php?id=0&table="+language1+"&item="+item, function(data) {
         //get id of new inserted row
         var lastRow=$.trim(data);

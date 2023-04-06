@@ -15,12 +15,10 @@ if ($id!==0) {
   //already exists
 	$sql = 'UPDATE '.$table.'_'.$item.' SET '.$field.'="'.$value.'" WHERE id='.$id;
 
-	if ($item==="headings"){
-		$sql = 'UPDATE '.$table.'_topics SET '.$field.'="'.$value.'" WHERE '.$field.'="'.$replace.'"';
-	}
+
 } else {
 	//insert new row
-	if ($item==="headings"){$item="topics";}//insert new heading into topics table
+	//if ($item==="headings"){$item="topics";}//insert new heading into topics table
 
 	$sql = 'INSERT INTO '.$table.'_'.$item.' VALUES ()';
 }
@@ -31,6 +29,7 @@ if ($conn->query($sql) === TRUE) {
         echo $last_id;
     }
 }
+
 
 //$conn->close();
 

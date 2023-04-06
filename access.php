@@ -39,7 +39,7 @@ if (!$_SESSION['loggedIn']): ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css?v=1">
+	<link rel="stylesheet" href="css/styles.css?v=2">
 </head>
 <body id="login">
 <div class="loginContainer">
@@ -52,7 +52,10 @@ if (!$_SESSION['loggedIn']): ?>
         foreach ($languages as $x=>$value) {
           //echo ($value->language1);
           if ($sl==="" || $sl===$value->language1){
-            if ($value->language1 === 'umpila') { $displayLanguage = 'Ngampula Kuuku Pitaanchimana'; } else { $displayLanguage = $value->language1;}
+            if ($value->language1 === 'umpila') { $displayLanguage = 'Ngampula Kuuku Pitaanchimana'; }
+            else if ($value->language1 === 'freshhope1') { $displayLanguage = 'Fresh Hope 1'; }
+            else if ($value->language1 === 'freshhope2') { $displayLanguage = 'Fresh Hope 2'; }
+            else { $displayLanguage = $value->language1;}
             echo '<option value="'.$x.'">'.ucfirst($displayLanguage).'</option>';
           }
         }

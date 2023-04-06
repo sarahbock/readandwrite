@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css?v=50">
+	<link rel="stylesheet" href="css/styles.css?v=36">
     <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
     <link href="css/all.min.css" rel="stylesheet">
     <?php require_once("settings.php"); ?>
@@ -39,7 +39,8 @@
 		?>
 		</style>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/scripts.js?v=50"></script>
+    <script type="text/javascript" src="js/scripts_temp.js?v=8"></script>
+		<script type="text/javascript" src="js/buttons.js?v=3"></script>
     <script src="js/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="js/rangy-core.js"></script>
     <script type="text/javascript" src="js/rangy-classapplier.js"></script>
@@ -293,10 +294,7 @@
     <div class="shading2">
         <div class="editLeft"><div><a data-fancybox data-src="#popup" href="javascript:void(0);"  title="More information"><i class="infoIcon fas fa-info-circle"></i></a><span class="language1"></span> keywords</div></div>
         <div class="editRight"><div>
-            <div contenteditable="true" id="keywordlanguage" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="keyword" placeholder="Separate keywords with commas"><?php if ($rows[0]['keyword']===""){
-                $langkeywordString = strtr($rows[0]['language'], array('.' => ' ','?' => ' '));
-                echo preg_replace('/\s+/', ',', $langkeywordString);
-                }else {echo(convertString($rows[0]['keyword']));} ?></div>
+            <div contenteditable="true" id="keywordlanguage" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="keyword" placeholder="Separate keywords with commas"><?php if ($rows[0]['keyword']===""){echo preg_replace('/\s+/', ',', $rows[0]['language']);}else {echo(convertString($rows[0]['keyword']));} ?></div>
         </div></div>
         <div class="clearBoth"></div>
     </div>
@@ -305,10 +303,7 @@
     <div class="shading2">
         <div class="editLeft"><div><a data-fancybox data-src="#popup" href="javascript:void(0);"  title="More information"><i class="infoIcon fas fa-info-circle"></i></a><span class="language2"></span> keywords</div></div>
         <div class="editRight"><div>
-            <div contenteditable="true" id="keywordtranslation" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="keywordtranslation" placeholder="Separate keywords with commas"><?php if ($rows[0]["keywordtranslation"]===""){
-                $translationString = strtr($rows[0]['keywordtranslation'], array('.' => ' ','?' => ' '));
-                echo preg_replace('/\s+/', ',', $translationString);
-                }else {echo(convertString($rows[0]["keywordtranslation"]));} ?></div>
+            <div contenteditable="true" id="keywordtranslation" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="keywordtranslation" placeholder="Separate keywords with commas"><?php if ($rows[0]["keywordtranslation"]===""){echo preg_replace('/\s+/', ',', $rows[0]['translation']);}else {echo($rows[0]["keywordtranslation"]);} ?></div>
         </div></div>
         <div class="clearBoth"></div>
     </div>

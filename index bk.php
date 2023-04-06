@@ -5,9 +5,9 @@
 <head>
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css?v=50">
+	<link rel="stylesheet" href="css/styles.css?v=35">
     <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
     <link href="css/all.min.css" rel="stylesheet">
     <?php require_once("settings.php");   ?>
@@ -24,8 +24,6 @@
 				$jsString.='var speakers='.json_encode($speakers).'; ';
         echo $jsString;
         ?>
-
-
     </script>
 		<style>
 		/*overwrite categories stylesheet*/
@@ -40,11 +38,10 @@
 		?>
 		</style>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/scripts.js?v=51"></script>
+    <script type="text/javascript" src="js/scripts.js?v=38"></script>
     <script type="text/javascript" src="js/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="js/rangy-core.js"></script> <!-- range and selection library - https://github.com/timdown/rangy-->
     <script type="text/javascript" src="js/rangy-classapplier.js"></script>
-
 </head>
 <body id="entries">
 
@@ -62,8 +59,6 @@
         case "sort2": $sql.=" WHERE translation!='null' AND translation!='' ORDER by translation"; break; //sort by language 2
         case "sort3": $sql.=" ORDER by timestamp DESC"; break; //sort by timestamp
         case "topic": $sql.=" WHERE topic LIKE \"%".$keyword."%\" OR related LIKE \"%".$keyword."%\""; break; //search topics and related topics
-				case "missingimage": $sql.=" WHERE image='' ORDER by id"; break;
-				case "missingaudio": $sql.=" WHERE soundfilename='' ORDER by id"; break;
         default: $sql.=" WHERE ".$filter." LIKE \"%".$keyword."%\"  OR id=(SELECT max(id) FROM ".$table.")"; //always show last (empty row)
     }
     $error = null;
@@ -109,10 +104,10 @@
 
             <!--Filter button-->
             <div class="modeButtonBlock">
-            <div class="modeButton" id="modeButtonFilter">
-							<div class="modeButtonClose<?php if ($filter!=="0"){echo' inline';}?>" id="modeButtonFilterClose" onclick="resetMode();"><i class="fas fa-arrow-circle-right"></i></div>
-                <i class="fas fa-filter" onclick="showMode('Filter');"></i> <button onclick="showMode('Filter');">Filter / Sort</button>
-                <div class="modeButtonFull<?php if ($filter!=="0"){echo' flex';}?>">
+            <div class="modeButtonClose<?php if ($filter!=="0"){echo' inline';}?>" id="modeButtonFilterClose"  onclick="resetMode();"><i class="fas fa-angle-right"></i></div>
+            <div class="modeButton" id="modeButtonFilter" onclick="showMode('Filter');">
+                <i class="fas fa-filter"></i> <button onclick="showMode('Filter');">Filter / Sort</button>
+                <div class="modeButtonFull<?php if ($filter!=="0"){echo' inline';}?>">
                     <!--First filter selection drop down (e.g. type of keyword)-->
                     <select class="modeButtonItem invisible" id="filter1" onchange="setFilter(1);">
                         <?php
@@ -124,8 +119,6 @@
                          foreach($filters as $x => $x_value) {
                              $fStr.='<option value="'.$x_value.'"'; if ($filter==$x_value){ $fStr.=' selected';} $fStr.='>'.$x.'</option>';
                          }
-												$fStr.='<option value="missingimage"'; if ($filter=='missingimage'){ $fStr.=' selected';} $fStr.='>Missing image</option>';
-												$fStr.='<option value="missingaudio"'; if ($filter=='missingaudio'){ $fStr.=' selected';} $fStr.='>Missing audio</option>';
 												$fStr.='<option value="0">============</option>';
  												$fStr.='<option value="0">SORT BY</option>';
                         $fStr.='<option value="sort1"'; if ($filter=="sort1"){$fStr.= ' selected';}  $fStr.='>Language</option>';
@@ -148,10 +141,9 @@
 
           <!--Quick edit button-->
           <div class="modeButtonBlock">
-
-            <div class="modeButton modeButtonLast" id="modeButtonQuick" title="Add colour">
-                <div class="modeButtonClose" id="modeButtonQuickClose" onclick="resetMode();"><i class="fas fa-arrow-circle-right"></i></div>
-								<i class="fas fa-paint-brush noMargin" onclick="showMode('Quick');"></i>
+          <div class="modeButtonClose" id="modeButtonQuickClose" onclick="resetMode();"><i class="fas fa-angle-right"></i></div>
+            <div class="modeButton modeButtonLast" id="modeButtonQuick" onclick="showMode('Quick');" title="Add colour">
+                <i class="fas fa-paint-brush noMargin"></i>
                 <div class="modeButtonFull">
 									<div class="glossContainer">
 									<?php
@@ -176,10 +168,9 @@
         <div class="tableHeader">
             <div class="col1">&nbsp;</div>
             <div class="col2"><span class="language1"></span></div>
-            <div class="col2">Break it down</div>
-            <div class="col2"><span class="language2"></span> meaning</div>
-            <?php if ($language1==='umpila') echo'<div class="col2">Creole</div>'?>
-            <div class="col2">Action</div>
+            <div class="col3">Break it down</div>
+            <div class="col4"><span class="language2"></span> meaning</div>
+            <div class="col5">Action</div>
             <div class="clearBoth"></div>
         </div>
     </div>
@@ -187,7 +178,6 @@
 
     <table id="entriesTable">
   <tbody id="entriesTableBody">
-
 
     <?php
     $str=""; $count=1;
@@ -198,20 +188,18 @@
             if ($row['id']!=="0" && $row['flag']!=="X" && ($row['id']!=="1" || ($row['language']!==""||$row['explanation']!==""||$row['translation']!==""))){
                 $temp[]=$row['keywordling'];
                // $rows[] = $row;
-							  $str.='<tr id="tableRow'.$row['id'].'" data-id="'.$row['id'].'">';
+                $str.='<tr id="tableRow'.$row['id'].'" data-id="'.$row['id'].'">';
                 $str.='<td class="col1"><div class="paddedText">';
                 $str.='<button class="nostyle addButton" id="add'.$row['id'].'" onclick="addRow('.$row['id'].');"><i class="fas fa-plus" data-id="'.$row['id'].'"></i></button>';
                 $str.='<span class="rowcount"></span></div></td>';
-                $str.='<td class="col2"><div contenteditable="false" class="ta glossing disabled" id="language'.$row['id'].'" data-field="language" data-id="'.$row['id'].'" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" onclick="showQuick()">'.convertString($row['language']).'</div></td>';
-                $str.='<td class="col2"><div contenteditable="false" class="ta glossing disabled" id="explanation'.$row['id'].'" data-field="explanation" data-id="'.$row['id'].'" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" onclick="showQuick()">'.convertString($row['explanation']).'</div></td>';
-                $str.='<td class="col2"><div contenteditable="false" class="ta disabled" id="translation'.$row['id'].'" data-field="translation" data-id="'.$row['id'].'" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" onclick="showQuick()">'.$row['translation'].'</div></td>';
-								/*Creole TEXT (UMPILA ONLY)*/
-                if ($language1==='umpila') $str.='<td class="col2"><div contenteditable="false" class="ta disabled" id="meaning'.$row['meaning'].'" data-field="meaning" data-id="'.$row['id'].'" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" onclick="showQuick()">'.$row['meaning'].'</div></td>';
-                $str.='<td class="col2"><div class="paddedText actionButtonsHolder">';
+                $str.='<td class="col2"><div contenteditable="false" class="ta glossing disabled" id="language'.$row['id'].'" data-field="language" data-id="'.$row['id'].'" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" onclick="showQuick()">'.$row['language'].'</div></td>';
+                $str.='<td class="col3"><div contenteditable="false" class="ta glossing disabled" id="explanation'.$row['id'].'" data-field="explanation" data-id="'.$row['id'].'" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" onclick="showQuick()">'.$row['explanation'].'</div></td>';
+                $str.='<td class="col4"><div contenteditable="false" class="ta disabled" id="translation'.$row['id'].'" data-field="translation" data-id="'.$row['id'].'" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" onclick="showQuick()">'.$row['translation'].'</div></td>';
+                $str.='<td class="col5"><div class="paddedText">';
                 //$str.='<button class="nostyle disabled saveButton" id="save'.$row['id'].'" onclick="confirmSave('.$row['id'].');"><i class="fas fa-save" data-id="'.$row['id'].'"></i></button>';
 
                 $str.='<button class="nostyle" onclick="editEntry(\''.$row['id'].'\');" title="Edit"><i class="fas fa-edit" data-id="'.$row['id'].'"></i></button>';
-                $str.='<button class="nostyle" onclick="editConversations(\''.$row['id'].'\')" title="Conversations"><i class="fas fa-comments" data-id="'.$row['id'].'"></i></button>';
+                $str.='<button class="nostyle" onclick="editConversations(\''.$row['id'].'\');" title="Conversations"><i class="fas fa-comments" data-id="'.$row['id'].'"></i></button>';
 								$str.='<button class="nostyle viewButton" id="view'.$row['id'].'" onclick="viewShell('.$row['id'].',false);"><i class="fas fa-eye" data-id="'.$row['id'].'" title="Preview in app"></i></button>';
                 $flagClass=" disabled"; if($row['flag']==="1"){$flagClass="";}
                 $str.='<button class="nostyle'.$flagClass.'" id="flagIcon'.$row['id'].'" onclick="toggleIndexFlag('.$row['id'].')"><i class="fas fa-flag" data-id="'.$row['id'].'" title="Toggle flag"></i></button>';

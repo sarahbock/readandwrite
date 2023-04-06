@@ -15,8 +15,11 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 	 //email exists
 	while($row = $result->fetch_assoc()) {
+	 	$row['language'] = convertString($row['language']);
+	 	$row['soundfilename'] = convertString($row['soundfilename']);
+	 	$row['speaker'] = convertString($row['speaker']);
+	 	$row['explanation'] = convertString($row['explanation']);
 		$rows[] = $row;
-
    }
 
 }
