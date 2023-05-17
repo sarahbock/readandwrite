@@ -4,8 +4,8 @@ require_once($db_connect_dir."dbconnect.php");
 require_once("settings.php");
 
 $id = intval($_GET["id"]);
-$field= $_GET["field"];
-$value = $_GET["value"];
+$field=''; if (isset($_GET["field"])) { $field= $_GET["field"]; }
+$value=''; if (isset($_GET["value"])) { $value= $_GET["value"]; }
 $table = $_GET["table"];
 
 //https://elearnaustralia.com.au/opal/readandwrite/set-data.php?id=0&table=sandpit
@@ -30,7 +30,6 @@ if ($id!==0) {
 
 	//$sql = 'INSERT INTO `'.$table.'`(`translationsoundfilename`,`soundfilename`,`speaker`,`timestamp`) VALUES ('','','',NOW());';
 }
-//echo $sql;
 if ($conn->query($sql) === TRUE) {
     if ($id===0) {
         $last_id = $conn->insert_id;

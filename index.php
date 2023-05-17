@@ -40,7 +40,7 @@
 		?>
 		</style>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/scripts.js?v=51"></script>
+    <script type="text/javascript" src="js/scripts.js?v=52"></script>
     <script type="text/javascript" src="js/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="js/rangy-core.js"></script> <!-- range and selection library - https://github.com/timdown/rangy-->
     <script type="text/javascript" src="js/rangy-classapplier.js"></script>
@@ -83,6 +83,13 @@
 				 <i class="fas fa-redo-alt"></i>
 						 <div class="modeButtonItem"><button onclick="playOnboarding();">Replay onboarding</button></div>
 		 </div>
+
+
+              <!--ADD ONE-->
+              <div class="modeButton" id="modeButtonAdd">
+                  <i class="fas fa-plus"></i>
+                      <div class="modeButtonItem"><button onclick="addEntry();">Add entry</button></div>
+              </div>
 
 		            <!--SEARCH-->
             <div class="modeButton" id="modeButtonSearch">

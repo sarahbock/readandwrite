@@ -520,6 +520,27 @@ function playOnboarding(){
   localStorage.removeItem('OPALtooltip');
 }
 
+function addEntry(){
+  if ($('#modeButtonAdd .modeButtonItem button').html()==='Working...') return false;
+  $('#modeButtonAdd .modeButtonItem button').html('Working...');
+  //console.log(apiPath+"set-data.php?id=0&table="+language1);
+  $.get(apiPath+"set-data.php?id=0&table="+language1, function(data) {
+    //console.log('added row',data);
+    //get id of new inserted row
+    var lastRow=$.trim(data);
+    if (lastRow) { 
+      editEntry(lastRow) 
+    } else {
+      alert('Could not add an entry at this time. Please try again and contact Elearn Australia on 0424 045 479 if the problem persists.'+ error); 
+      $('#modeButtonAdd .modeButtonItem button').html('Add entry'); 
+    }
+  })
+  .fail(function(error) { 
+    alert('Could not add an entry at this time. Please try again and contact Elearn Australia on 0424 045 479 if the problem persists.'+ error); 
+    $('#modeButtonAdd .modeButtonItem button').html('Add entry'); 
+  });
+}
+
 
 function textAreaFocus(e){
     //show($(e).data("id"));
