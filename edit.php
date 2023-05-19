@@ -159,6 +159,13 @@
         <div class="clearBoth"></div>
     </div>
 
+      <!-- IMAGE CREDIT (ONLY IN MANGARRAYI)-->
+      <div class="shading2<?php if ($language1!=='mangarrayi') echo' invisible';?>"">
+        <div class="editLeft"><div>Image credit</div></div>
+        <div class="editRight"><div><div contenteditable="true" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="notes" placeholder="Type photographer name if you have it"><?php echo($rows[0]['notes']);?></div></div></div>
+        <div class="clearBoth"></div>
+    </div>
+
 
     <hr>
     <h2>Translation</h2>
@@ -206,12 +213,21 @@
 
 
 
-    <!-- NOTES -->
-    <div class="shading2">
+    <!-- NOTES (NOT IN MANGARRAYI)-->
+    <div class="shading2<?php if ($language1==='mangarrayi') echo' invisible';?>"">
         <div class="editLeft"><div>Notes</div></div>
         <div class="editRight"><div><div contenteditable="true" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="notes" placeholder="Type notes here"><?php echo($rows[0]['notes']);?></div></div></div>
         <div class="clearBoth"></div>
     </div>
+
+     <!-- INFO (ONLY IN MANGARRAYI)-->
+     <div class="shading2<?php if ($language1!=='mangarrayi') echo' invisible';?>"">
+        <div class="editLeft"><div>Info</div></div>
+        <div class="editRight"><div><div contenteditable="true" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="info" placeholder="Type information here example notes about bush tucker"><?php echo($rows[0]['info']);?></div></div></div>
+        <div class="clearBoth"></div>
+    </div>
+
+
 
 
     <hr>
@@ -334,6 +350,8 @@
     </div>
 
 	</div><!--end advanced-->
+
+    
 
     <hr>
 

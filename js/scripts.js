@@ -249,7 +249,12 @@ for (var c=0; c<classes.length; c++){	classSelectStr+='<option value="'+classes[
 
 //Linguistic keyword dropdowns
 var ling1SelectStr='<option value="0">PRONOUN</option>';
-for (var l1=0; l1<lingKeyword1.length; l1++){ling1SelectStr+='<option value="'+lingKeyword1[l1].title+'">'+lingKeyword1[l1].title+'</option>';}
+
+for (var l1=0; l1<lingKeyword1.length; l1++){
+  //for mangarrayi make keyword 1 upper case for backwards compatibility
+  var keyword1title = (language1==='mangarrayi') ? lingKeyword1[l1].title?.toUpperCase() : lingKeyword1[l1].title;
+  ling1SelectStr+='<option value="'+keyword1title+'">'+keyword1title+'</option>';
+}
 var ling2SelectStr='<option value="0">VERBAL</option>';
 for (var l2=0; l2<lingKeyword2.length; l2++){ling2SelectStr+='<option value="'+lingKeyword2[l2].title+'">'+lingKeyword2[l2].title+'</option>';}
 var ling3SelectStr='<option value="0">NOMINAL</option>';
@@ -330,10 +335,18 @@ $(document).ready(function(){
     $("#classSelect").html(classSelectStr).val($("#classSelect").data("selected"));
     $("#speakerSelect").val($("#speakerSelect").data("selected"));
 
-    $("#ling1Select").html(ling1SelectStr).val($("#ling1Select").data("selected"));
-    $("#ling2Select").html(ling2SelectStr).val($("#ling2Select").data("selected"));
-    $("#ling3Select").html(ling3SelectStr).val($("#ling3Select").data("selected"));
-    $("#ling4Select").html(ling4SelectStr).val($("#ling4Select").data("selected"));
+    
+    if (language1==='mangarrayi'){ //backwards compatibility - show all linguistic keywords in each dropdown
+      $("#ling1Select").html(lingSelectStr).val($("#ling1Select").data("selected"));
+      $("#ling2Select").html(lingSelectStr).val($("#ling2Select").data("selected"));
+      $("#ling3Select").html(lingSelectStr).val($("#ling3Select").data("selected"));
+      $("#ling4Select").html(lingSelectStr).val($("#ling4Select").data("selected"));
+    } else {
+      $("#ling1Select").html(ling1SelectStr).val($("#ling1Select").data("selected"));
+      $("#ling2Select").html(ling2SelectStr).val($("#ling2Select").data("selected"));
+      $("#ling3Select").html(ling3SelectStr).val($("#ling3Select").data("selected"));
+      $("#ling4Select").html(ling4SelectStr).val($("#ling4Select").data("selected"));
+    }
 
 
    $(".glossCircle").click(function(e){ setGlossCircle(e.target);  });
