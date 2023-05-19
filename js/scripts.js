@@ -1240,6 +1240,7 @@ function uploadFile(field,id){
     if (field==="image" || field.indexOf("image")!==-1 ) {
       xurl="upload-imagefile.php?dir="+language1;
     } //set AJAX script according to media type
+    $("#"+field+"upload").val("Uploading...");//change upload button text
 		xhttp.open("POST", xurl, true); //send AJAX request
 		xhttp.onreadystatechange = function() { //success callback
 			if (this.readyState == 4 && this.status == 200) {

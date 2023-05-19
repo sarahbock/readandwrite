@@ -18,7 +18,7 @@ if(isset($_FILES['file']['name'])){
    $response = 0;
 
    //default limit is 100kb for fresh hope it's 1000kb (1MB)
-   $sizelimit=100*1024; if ($dir === 'freshhope1' || $dir === 'freshhope2' || $dir === 'gathang') { $sizelimit=1000*1024; }
+   $sizelimit=100*1024; if ($dir === 'freshhope1' || $dir === 'freshhope2' || $dir === 'gathang' || $dir === 'mangarrayi') { $sizelimit=1000*1024; }
 
    if(in_array($file_extension,$valid_ext)){
       // Upload file
