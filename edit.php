@@ -177,6 +177,13 @@
         <div class="clearBoth"></div>
     </div>
 
+    <!-- KRIOL TEXT (MANGARRAYI ONLY)-->
+    <div class="shading2<?php if ($language1!=='mangarrayi') echo' invisible';?>">
+        <div class="editLeft"><div>Kriol</div></div>
+        <div class="editRight"><div><div contenteditable="true" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="kriol" placeholder="Type Kriol here"><?php echo($rows[0]['kriol']);?></div></div></div>
+        <div class="clearBoth"></div>
+    </div>
+
     <!--TRANSLATION SOUND FILE -->
     <div class="shading2">
         <div class="editLeft"><div>Audio</div></div>
