@@ -61,7 +61,7 @@
         case "sort1": $sql.=" WHERE language!='null' AND language!='' ORDER by language"; break; //sort by language 1
         case "sort2": $sql.=" WHERE translation!='null' AND translation!='' ORDER by translation"; break; //sort by language 2
         case "sort3": $sql.=" ORDER by timestamp DESC"; break; //sort by timestamp
-        case "topic": $sql.=" WHERE topic LIKE \"%".$keyword."%\" OR related LIKE \"%".$keyword."%\""; break; //search topics and related topics
+        case "topic": $sql.=" WHERE topic LIKE \"".$keyword."\" OR related LIKE \"".$keyword."\" OR related LIKE \"".$keyword.",%\" OR related LIKE \"%,".$keyword.",%\" OR related LIKE \"%,".$keyword."\""; break; //search topics and related topics
 				case "missingimage": $sql.=" WHERE image='' ORDER by id"; break;
 				case "missingaudio": $sql.=" WHERE soundfilename='' ORDER by id"; break;
         default: $sql.=" WHERE ".$filter." LIKE \"%".$keyword."%\"  OR id=(SELECT max(id) FROM ".$table.")"; //always show last (empty row)

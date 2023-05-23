@@ -777,7 +777,7 @@ function setFilter(n){
 function getSecondFilterValues(filter,keyword){
     //this populates the 2nd filter dropdown according to what they have selected in the 1st filter dropdown
     //show("Filters "+filter+" Filters: "+JSON.stringify(filters));
-    show("getSecondFilterValues for filter "+filter+" and keyword "+keyword);
+    show("getSecondFilterValues for filter: "+filter+" and keyword "+keyword);
     //show(filters)
 
     var filterArray=[]; //set up new array to store the values e.g. the different keywords
@@ -847,7 +847,7 @@ function getSecondFilterValues(filter,keyword){
             } else {
               if(filterArray.indexOf(item.toLowerCase())!==-1){classStr=' class="selectBold"';}
             }
-            filterSelectStr+='<option value="'+ (item.id ? item.id : item) +'"'+classStr+'>'+(item.topic ? item.id : item)+'</option>';
+            filterSelectStr+='<option value="'+ (item.id ? item.id : item) +'"'+classStr+'>'+(item.topic ? item.topic : item)+'</option>';
           }
         });
       });
