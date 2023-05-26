@@ -1141,7 +1141,7 @@ function entryBack(){
 
 function manageSelect(field){ //from edit page select dropdowns
   var id=$("#container").data("id");
-  var url = (field === 'topic') ? "manage_topics.php?id="+id : "manage.php?id="+id;
+  var url = (field === 'topic' || field === 'additionaltopic1' || field === 'additionaltopic2') ? "manage_topics.php?id="+id : "manage.php?id="+id;
   //alert(field);
   var URLsearch=$('.searchInput').val();
   var URLfilter; URLfilter=getQueryVariable("filter");
