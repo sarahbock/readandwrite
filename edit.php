@@ -94,18 +94,12 @@
         <div class="clearBoth"></div>
     </div>
 
-    <!--EXPLANATION-->
-    <div class="shading2">
-        <div class="editLeft"><div>Explanation</div></div>
-        <div class="editRight"><div><div contenteditable="true" class="ta glossing" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="explanation" id="explanation<?php echo($rows[0]['id']);?>" placeholder="Type explanation"><?php echo($rows[0]['explanation']);?></div></div></div>
-        <div class="clearBoth"></div>
-    </div>
-
+   
 
 
     <!--SOUND FILE-->
     <div class="shading2">
-        <div class="editLeft"><div>Sound file</div></div>
+        <div class="editLeft"><div>Sound</div></div>
         <div class="editRight">
             <!--show file input if there is no sound file-->
             <div id="soundfilenameUpload" class="<?php if($rows[0]['soundfilename']!==""){ echo("invisible");} ?>">
@@ -134,12 +128,7 @@
         <div class="clearBoth"></div>
     </div>
 
-      <!-- FILE SOURCE -->
-    <div class="shading2">
-        <div class="editLeft"><div>File source</div></div>
-        <div class="editRight"><div><div contenteditable="true" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="source" placeholder=""><?php echo($rows[0]['source']);?></div></div></div>
-        <div class="clearBoth"></div>
-    </div>
+     
 
     <!-- IMAGE -->
     <div class="shading2">
@@ -166,14 +155,22 @@
         <div class="clearBoth"></div>
     </div>
 
+     <!-- TRANSLATION TEXT -->
+
+     <div class="shading2">
+        <div class="editLeft"><div><span class="language2"></span> meaning</div></div>
+        <div class="editRight"><div><div contenteditable="true" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="translation" placeholder="Type translation here"><?php echo($rows[0]['translation']);?></div></div></div>
+        <div class="clearBoth"></div>
+    </div>
+
 
     <hr>
-    <h2>Translation</h2>
+    <h2>More information</h2>
 
-    <!-- TRANSLATION TEXT -->
-    <div class="shading2">
-        <div class="editLeft"><div>Text</div></div>
-        <div class="editRight"><div><div contenteditable="true" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="translation" placeholder="Type translation here"><?php echo($rows[0]['translation']);?></div></div></div>
+     <!--EXPLANATION-->
+     <div class="shading2">
+        <div class="editLeft"><div>Break it down</div></div>
+        <div class="editRight"><div><div contenteditable="true" class="ta glossing" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="explanation" id="explanation<?php echo($rows[0]['id']);?>" placeholder="Type explanation"><?php echo($rows[0]['explanation']);?></div></div></div>
         <div class="clearBoth"></div>
     </div>
 
@@ -211,6 +208,12 @@
         <div class="clearBoth"></div>
     </div>
 
+     <!-- FILE SOURCE -->
+     <div class="shading2">
+        <div class="editLeft"><div>File source</div></div>
+        <div class="editRight"><div><div contenteditable="true" class="ta" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" maxlength="500" data-id="<?php echo($rows[0]['id']);?>" data-field="source" placeholder=""><?php echo($rows[0]['source']);?></div></div></div>
+        <div class="clearBoth"></div>
+    </div>
 
 
     <!-- NOTES (NOT IN MANGARRAYI)-->

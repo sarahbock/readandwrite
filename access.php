@@ -63,7 +63,7 @@ if (!$_SESSION['loggedIn']): ?>
 
       </select>
 		<p>Password: <input type="password" name="password"> </p>
-		<p> <input type="submit" name="submit" value="Login"></p>
+		<p> <input type="submit" name="submit" value="Log in"></p>
     </form>
 </div>
 </body>
