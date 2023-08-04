@@ -171,7 +171,7 @@ var lingKeyword2=[
 ];
 
 var lingKeyword3=[
-    {"title":"Accusative ","id":"1"},
+    {"title":"Accusative","id":"1"},
     {"title":"Ablative","id":"1"},
     {"title":"Allative","id":"1"},
     {"title":"Absolutive","id":"1"},
@@ -536,7 +536,7 @@ function playOnboarding(){
 function addEntry(){
   if ($('#modeButtonAdd .modeButtonItem button').html()==='Working...') return false;
   $('#modeButtonAdd .modeButtonItem button').html('Working...');
-  //console.log(apiPath+"set-data.php?id=0&table="+language1);
+  console.log(apiPath+"set-data.php?id=0&table="+language1);
   $.get(apiPath+"set-data.php?id=0&table="+language1, function(data) {
     //console.log('added row',data);
     //get id of new inserted row
@@ -1278,6 +1278,7 @@ function uploadFile(field,id){
           } else {
             alert("There was a problem uploading the file. Check that the file does not exceed 100kb.");
           }
+          $("#"+field+"upload").val("Upload");
 				}
 			}
 		};
@@ -1345,7 +1346,7 @@ function getConversations(){
                 str+='<div class="formcol15"><div class="formcontent">'+conversations[m].entry4+'</div></div>';
                 str+='<div class="formcol15"><div class="formcontent">'+conversations[m].entry5+'</div></div>';
                 str+='<div class="formcol15"><div class="formcontent">'+conversations[m].entry6+'</div></div>';
-                str+='<div class="formcol5"><div class="formcontent"><button class="nostyle viewButton" onclick="viewShell('+filters[cid].id+',true);"><i class="fas fa-eye"></i></button> &nbsp; <a class="deleteLink" href="javascript:void(0)" onclick="deleteConversation('+conversations[m].id+');">X</a></div></div>';
+                str+='<div class="formcol5"><div class="formcontent"><a class="deleteLink" href="javascript:void(0)" onclick="deleteConversation('+conversations[m].id+');">X</a></div></div>';
                 str+='</div>';
                 //if (m===(conversations.length-1)){str+='<div class="clearBoth"></div>';}else{str+='<div class="clearBoth"><hr></div>';}
             }
@@ -1503,7 +1504,7 @@ function addRow(id){
         //append table with new row
         var str='<tr id="tableRow'+lastRow+'" data-id="'+lastRow+'">';
         str+='<td class="col1"><div class="paddedText">';
-        str+='<button class="nostyle addButton" id="add'+lastRow+'" onclick="addRow('+lastRow+');"><i class="fas fa-plus" data-id="'+lastRow+'"></i></button>';
+        //str+='<button class="nostyle addButton" id="add'+lastRow+'" onclick="addRow('+lastRow+');"><i class="fas fa-plus" data-id="'+lastRow+'"></i></button>';
         str+='<span class="rowcount"></span></div></td>';
         str+='<td class="col2"><div contenteditable="true" class="ta glossing" data-field="language" data-id="'+lastRow+'" id="language'+lastRow+'" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" onclick="showQuick()"></div></td>';
         str+='<td class="col2"><div contenteditable="true" class="ta glossing" data-field="explanation'+'" data-id="'+lastRow+'" id="explanation'+lastRow+'" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" onclick="showQuick()"></div></td>';

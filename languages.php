@@ -1,11 +1,7 @@
  <?php
 // use https://www.w3schools.com/php/phptryit.asp?filename=tryphp_func_string_sha1 to change passwords
 
-$presenter = new stdClass();
-$presenter->language1="presenter";
-$presenter->language1header="Language";
-$presenter->language2="english";
-$presenter->password="d8523017e792fe31affa7cefe350beb95445d307";
+
 
 $agedcare2 = new stdClass();
 $agedcare2->language1="group1";
@@ -31,6 +27,42 @@ $agedcare5->language1header="Language";
 $agedcare5->language2="english";
 $agedcare5->password="34ecfb436b7684370a510a48a27c42458e8f7850";
 
+$group5 = new stdClass();
+$group5->language1="group5";
+$group5->language1header="Language";
+$group5->language2="english";
+$group5->password="e2f4ad44b2326771b3092d7aec965efc60e86611";
+
+$group6 = new stdClass();
+$group6->language1="group6";
+$group6->language1header="Language";
+$group6->language2="english";
+$group6->password="edd909f47b94731b3f4bec86288b7199e269cff3";
+
+$group7 = new stdClass();
+$group7->language1="group7";
+$group7->language1header="Language";
+$group7->language2="english";
+$group7->password="e3e3afccc9651c35a7cfb5b1dd4a7b5190865955";
+
+$group8 = new stdClass();
+$group8->language1="group8";
+$group8->language1header="Language";
+$group8->language2="english";
+$group8->password="93cee75f13d8e3d7f07451e453b54e0f07e9bf3e";
+
+$group9 = new stdClass();
+$group9->language1="group9";
+$group9->language1header="Language";
+$group9->language2="english";
+$group9->password="92c7cf592610126f78f0081401529a9a6abd6962";
+
+$group10 = new stdClass();
+$group10->language1="group10";
+$group10->language1header="Language";
+$group10->language2="english";
+$group10->password="841a6ad1b24833c266b8683ab63fc368348fa913";
+
 $freshhope1 = new stdClass();
 $freshhope1->language1="freshhope1";
 $freshhope1->language1header="Language";
@@ -49,57 +81,37 @@ $gathang->language1header="Language";
 $gathang->language2="english";
 $gathang->password="520efa8ca152e11c21fd0bcb4fdd03b65bd01b51";
 
+$guugu_yimithirr = new stdClass();
+$guugu_yimithirr->language1="guugu_yimithirr";
+$guugu_yimithirr->language1header="Guugu Yimithirr";
+$guugu_yimithirr->language2="english";
+$guugu_yimithirr->password="1b07cd00bd5b491e6270f29daa83c90bfaf6492f";
 
-$chinese = new stdClass();
-$chinese->language1="chinese";
-$chinese->language1header="";
-$chinese->language2="english";
-$chinese->password="d7bcc242d820feabede230f89f48709dcf966d78";
+$hungarian = new stdClass();
+$hungarian->language1="hungarian";
+$hungarian->language1header="";
+$hungarian->language2="english";
+$hungarian->password="2195cb035b3890987afc53bed8a8339128caab3c";
 
-$german = new stdClass();
- $german->language1="german";
- $german->language1header="";
- $german->language2="english";
- $german->password="e27a5b2abab6e9fb6b36b95db5deda8cb1796d93";
+$mangarrayi = new stdClass();
+$mangarrayi->language1="mangarrayi";
+$mangarrayi->language1header="";
+$mangarrayi->language2="english";
+$mangarrayi->password="2195cb035b3890987afc53bed8a8339128caab3c";
 
+$sandpit = new stdClass();
+$sandpit->language1="sandpit";
+$sandpit->language1header="Language";
+$sandpit->language2="english";
+$sandpit->password="8d83aa50b8b9a3b13b8a50b94b9d01ad7df3b9be";
 
- $hungarian = new stdClass();
- $hungarian->language1="hungarian";
- $hungarian->language1header="";
- $hungarian->language2="english";
- $hungarian->password="2195cb035b3890987afc53bed8a8339128caab3c";
+$umpila = new stdClass();
+$umpila->language1="umpila";
+$umpila->language1header="Language";
+$umpila->language2="english";
+$umpila->password="bbad22e4eb8bbb6b358cd9b9e5ad8f51ee837ae0";
 
- $hindi = new stdClass();
- $hindi->language1="hindi";
- $hindi->language1header="";
- $hindi->language2="english";
- $hindi->password="6f1c601a03a181f1e34d951ad606b5c49e99f02f";
-
- $ktunaxa = new stdClass();
- $ktunaxa->language1="ktunaxa";
- $ktunaxa->language1header="";
- $ktunaxa->language2="english";
- $ktunaxa->password="43cadfb9bcdb3f35456e69d794039be4e21bfd4d";
-
- $mangarrayi = new stdClass();
- $mangarrayi->language1="mangarrayi";
- $mangarrayi->language1header="";
- $mangarrayi->language2="english";
- $mangarrayi->password="2195cb035b3890987afc53bed8a8339128caab3c";
-
- $sandpit = new stdClass();
- $sandpit->language1="sandpit";
- $sandpit->language1header="Language";
- $sandpit->language2="english";
- $sandpit->password="8d83aa50b8b9a3b13b8a50b94b9d01ad7df3b9be";
-
- $umpila = new stdClass();
- $umpila->language1="umpila";
- $umpila->language1header="Language";
- $umpila->language2="english";
- $umpila->password="bbad22e4eb8bbb6b358cd9b9e5ad8f51ee837ae0";
-
- $languages = array($presenter, $agedcare2, $agedcare3, $agedcare4, $agedcare5, $chinese, $freshhope1, $freshhope2, $gathang, $german, $hindi, $hungarian, $ktunaxa, $mangarrayi, $umpila, $sandpit);
+ $languages = array($agedcare2, $agedcare3, $agedcare4, $agedcare5, $group5, $group6, $group7, $group8, $group9, $group10, $freshhope1, $freshhope2, $gathang, $guugu_yimithirr, $hungarian, $mangarrayi, $umpila, $sandpit);
 
 
 ?>

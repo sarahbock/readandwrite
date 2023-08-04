@@ -207,7 +207,7 @@
                // $rows[] = $row;
 							  $str.='<tr id="tableRow'.$row['id'].'" data-id="'.$row['id'].'">';
                 $str.='<td class="col1"><div class="paddedText">';
-                $str.='<button class="nostyle addButton" id="add'.$row['id'].'" onclick="addRow('.$row['id'].');"><i class="fas fa-plus" data-id="'.$row['id'].'"></i></button>';
+                //$str.='<button class="nostyle addButton" id="add'.$row['id'].'" onclick="addRow('.$row['id'].');"><i class="fas fa-plus" data-id="'.$row['id'].'"></i></button>';
                 $str.='<span class="rowcount"></span></div></td>';
                 $str.='<td class="col2"><div contenteditable="false" class="ta glossing disabled" id="language'.$row['id'].'" data-field="language" data-id="'.$row['id'].'" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" onclick="showQuick()">'.convertString($row['language']).'</div></td>';
                 $str.='<td class="col2"><div contenteditable="false" class="ta glossing disabled" id="explanation'.$row['id'].'" data-field="explanation" data-id="'.$row['id'].'" onfocus="textAreaFocus(this);" onblur="textAreaBlur(this);" onclick="showQuick()">'.convertString($row['explanation']).'</div></td>';

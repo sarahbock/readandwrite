@@ -8,7 +8,7 @@ $field=''; if (isset($_GET["field"])) { $field= $_GET["field"]; }
 $value=''; if (isset($_GET["value"])) { $value= $_GET["value"]; }
 $table = $_GET["table"];
 
-//https://elearnaustralia.com.au/opal/readandwrite/set-data.php?id=0&table=sandpit
+//https://elearnaustralia.com.au/opal/readandwrite/set-data.php?id=0&table=guugu_yimithirr
 
 if ($id!==0) {
    //already exists
@@ -26,7 +26,7 @@ if ($id!==0) {
 } else {
 	//insert new row
 	//$sql = 'INSERT INTO '.$table.' VALUES ()';
-	$sql = 'INSERT INTO '.$table.' (`translationsoundfilename`,`soundfilename`,`speaker`,`timestamp`) VALUES (\'\',\'\',\'\',NOW())';
+	$sql = 'INSERT INTO '.$table.' (`translationsoundfilename`,`keyword`,`soundfilename`,`speaker`,`timestamp`) VALUES (\'\',\'\',\'\',\'\',NOW())';
 
 	//$sql = 'INSERT INTO `'.$table.'`(`translationsoundfilename`,`soundfilename`,`speaker`,`timestamp`) VALUES ('','','',NOW());';
 }

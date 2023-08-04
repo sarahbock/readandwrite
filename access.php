@@ -53,6 +53,7 @@ if (!$_SESSION['loggedIn']): ?>
           //echo ($value->language1);
           if ($sl==="" || $sl===$value->language1){
             if ($value->language1 === 'umpila') { $displayLanguage = 'Ngampula Kuuku Pitaanchimana'; }
+            if ($value->language1 === 'guugu_yimithirr') { $displayLanguage = 'Guugu Yimithirr'; }
             else if ($value->language1 === 'freshhope1') { $displayLanguage = 'Fresh Hope 1'; }
             else if ($value->language1 === 'freshhope2') { $displayLanguage = 'Fresh Hope 2'; }
             else { $displayLanguage = $value->language1;}

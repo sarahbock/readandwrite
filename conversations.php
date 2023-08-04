@@ -43,7 +43,7 @@
 	}
 	$sql.=" ORDER BY translation";
 	$error = null;
-//echo $sql;
+//echo $selectstr;
 
 
 	$result = $conn->query($sql);

@@ -19,8 +19,8 @@ $db_connect_dir="./"; //change this to where your database connection file will 
 require_once($db_connect_dir."dbconnect.php");//move this file to your root directory if you require more security
 
 
-//Label in drop down menu => field name in database table (must be exact match)
-$filters=array("Topics"=>"topic", "Flagged"=>"flag","Keywords (".$language1header.")"=>"keyword", "Keywords (".$language2U.")"=>"keywordtranslation", "Speaker"=>"speaker", "Class"=>"class", "Language function"=>"function", "Linguistic keyword"=>"keywordling");
+//Label in drop down menu => field name in database table (must be exact match) - removed function due to SQL error in name
+$filters=array("Topics"=>"topic", "Flagged"=>"flag","Language keywords"=>"keyword", "Translation keywords"=>"keywordtranslation", "Speaker"=>"speaker", "Class"=>"class","Linguistic keyword"=>"keywordling");
 
 //detect Windows-1252
 function convertString ($str) {
