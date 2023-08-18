@@ -1276,7 +1276,7 @@ function uploadFile(field,id){
           if (language1 === 'freshhope1' || language1 === 'freshhope2' || language1 === 'gathang') {
             alert("There was a problem uploading the file. Check that the file does not exceed 1MB.");
           } else {
-            alert("There was a problem uploading the file. Check that the file does not exceed 100kb.");
+            alert("There was a problem uploading the file. Check that the file does not exceed 200kb.");
           }
           $("#"+field+"upload").val("Upload");
 				}
