@@ -49,17 +49,23 @@ if (!$_SESSION['loggedIn']): ?>
       <select name="language" id="language">
         <option value="">Select language or group</option>
         <?php
-        foreach ($languages as $x=>$value) {
-          //echo ($value->language1);
-          if ($sl==="" || $sl===$value->language1){
-            if ($value->language1 === 'umpila') { $displayLanguage = 'Ngampula Kuuku Pitaanchimana'; }
-            if ($value->language1 === 'guugu_yimithirr') { $displayLanguage = 'Guugu Yimithirr'; }
-            else if ($value->language1 === 'freshhope1') { $displayLanguage = 'Fresh Hope 1'; }
-            else if ($value->language1 === 'freshhope2') { $displayLanguage = 'Fresh Hope 2'; }
-            else { $displayLanguage = $value->language1;}
-            echo '<option value="'.$x.'">'.ucfirst($displayLanguage).'</option>';
+        if ($sl==='puliima') {
+          echo '<option value="0">Group1</option><option value="1">Group2</option><option value="2">Group3</option><option value="3">Group4</option><option value="4">Group5</option><option value="5">Group6</option><option value="6">Group7</option><option value="7">Group8</option><option value="8">Group9</option><option value="9">Group10</option>';
+        } else {
+          foreach ($languages as $x=>$value) {
+            //echo ($value->language1);
+            if ($sl==="" || $sl===$value->language1){
+              if ($value->language1 === 'umpila') { $displayLanguage = 'Ngampula Kuuku Pitaanchimana'; }
+              if ($value->language1 === 'guugu_yimithirr') { $displayLanguage = 'Guugu Yimithirr'; }
+              else if ($value->language1 === 'freshhope1') { $displayLanguage = 'Fresh Hope 1'; }
+              else if ($value->language1 === 'freshhope2') { $displayLanguage = 'Fresh Hope 2'; }
+              else { $displayLanguage = $value->language1;}
+              echo '<option value="'.$x.'">'.ucfirst($displayLanguage).'</option>';
+            }
           }
+
         }
+        
         ?>
 
       </select>
