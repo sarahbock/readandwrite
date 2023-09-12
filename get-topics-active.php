@@ -9,8 +9,8 @@ $error = null;
   //new version
   //create array of topics
 
-  $headings_sql = "SELECT * FROM ".$table."_headings ORDER BY heading";
-  $topics_sql = "SELECT * FROM ".$table."_topics ORDER BY topic";
+  $headings_sql = "SELECT * FROM ".$table."_headings ORDER BY displayorder";
+  $topics_sql = "SELECT * FROM ".$table."_topics ORDER BY displayorder";
 
   $headings_result = $conn->query($headings_sql);
   $topics_result = $conn->query($topics_sql);
