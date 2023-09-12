@@ -190,7 +190,6 @@ body#managetopics .manageTopics th { margin: 10px 0;}
 body#managetopics .manageTopics th .ta{}
 body#managetopics .manageTopics td.displayFlex {display: flex;}
 body#managetopics .manageTopics .itemName {flex:2; display: flex;}
-body#managetopics .manageTopics td.itemName .ta {margin-left:50px;}
 body#managetopics .manageTopics .itemImage {flex:1; display: flex;}
 body#managetopics .manageTopics .itemDelete {flex:1; display: flex;justify-content: flex-end;}
 body#managetopics .manageTopics .itemMove {flex:2; display: flex; justify-content: center;}

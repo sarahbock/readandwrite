@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css?v=32">
+	<link rel="stylesheet" href="css/styles.css?v=33">
   <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
   <link href="css/all.min.css" rel="stylesheet">
      <?php  require_once("settings.php");   ?>
