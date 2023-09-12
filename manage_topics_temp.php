@@ -23,7 +23,8 @@
     </script>
 
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/scripts.js?v=34"></script>
+    <!--<script type="text/javascript" src="js/scripts.js?v=33"></script>-->
+    <script type="text/javascript" src="js/scripts_temp.js?v=34"></script>
 	<script type="text/javascript" src="js/buttons.js?v=1"></script>
     <script src="js/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="js/rangy-core.js"></script> <!-- range and selection library - https://github.com/timdown/rangy-->

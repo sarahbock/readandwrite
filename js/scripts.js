@@ -1220,17 +1220,17 @@ function deleteItem(id, item, value){
 	}
 }
 
-function addTopic(headingId){
-  console.log(apiPath+"set-data.php?id=0&field=topics&table="+language1+"_topics&value="+headingId);
-  $.get(apiPath+"set-data.php?id=0&field=topics&table="+language1+"_topics&value="+headingId, function() {})//write to db
+function addTopic(headingId, count){
+  console.log(apiPath+"set-data.php?id=0&field=topics&table="+language1+"_topics&value="+headingId+"&count="+count);
+  $.get(apiPath+"set-data.php?id=0&field=topics&table="+language1+"_topics&value="+headingId+"&count="+count, function() {})//write to db
   .done(function(){
     window.location.reload();
   });
 }
 
-function addHeading(){
-  console.log(apiPath+"set-data.php?id=0&field=headings&table="+language1+"_headings&value=");
-  $.get(apiPath+"set-data.php?id=0&field=headings&table="+language1+"_headings&value=", function() {})//write to db
+function addHeading(count){
+  console.log(apiPath+"set-data.php?id=0&field=headings&table="+language1+"_headings&value=&count="+count);
+  $.get(apiPath+"set-data.php?id=0&field=headings&table="+language1+"_headings&value=&count="+count, function() {})//write to db
   .done(function(){
     window.location.reload();
   });
@@ -1457,6 +1457,20 @@ function saveField(id,field,value){
         show("SAVE FIELD "+apiPath+"set-item.php?id="+id+"&field=heading&table="+language1+"&value="+value+"&item=topics&replace=");
         //$sql = 'UPDATE '.$table.'_'.$item.' SET '.$field.'="'.$value.'" WHERE id='.$id;
         $.get(apiPath+"set-item.php?id="+id+"&field=heading&table="+language1+"&value="+value+"&item=topics&replace=", function() {})
+    		.done(function() {window.location.reload();})
+    		.fail(function() { });
+      } else if ( field === 'headingDisplayOrder'){
+        //changing order of the heading in the manage topics page
+        //$sql = 'UPDATE '.$table.'_'.$item.' SET '.$field.'="'.$value.'" WHERE id='.$id;
+        show("SAVE FIELD "+apiPath+"set-item.php?id="+id+"&field=displayorder&table="+language1+"&value="+value+"&item=headings&replace=");
+        $.get(apiPath+"set-item.php?id="+id+"&field=displayorder&table="+language1+"&value="+value+"&item=headings&replace=", function() {})
+    		.done(function() {window.location.reload();})
+    		.fail(function() { });
+      } else if ( field === 'topicDisplayOrder'){
+        //changing order of the topic in the manage topics page
+        //$sql = 'UPDATE '.$table.'_'.$item.' SET '.$field.'="'.$value.'" WHERE id='.$id;
+        show("SAVE FIELD "+apiPath+"set-item.php?id="+id+"&field=displayorder&table="+language1+"&value="+value+"&item=topics&replace=");
+        $.get(apiPath+"set-item.php?id="+id+"&field=displayorder&table="+language1+"&value="+value+"&item=topics&replace=", function() {})
     		.done(function() {window.location.reload();})
     		.fail(function() { });
       }
