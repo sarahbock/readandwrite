@@ -112,7 +112,14 @@ $umpila->language1header="Language";
 $umpila->language2="english";
 $umpila->password="bbad22e4eb8bbb6b358cd9b9e5ad8f51ee837ae0";
 
- $languages = array($agedcare2, $agedcare3, $agedcare4, $agedcare5, $group5, $group6, $group7, $group8, $group9, $banyjima, $freshhope1, $freshhope2, $gathang, $guugu_yimithirr, $hungarian, $mangarrayi, $umpila, $sandpit);
+$wik_mungkan = new stdClass();
+$wik_mungkan->language1="wik_mungkan";
+$wik_mungkan->language1header="Wik Mungkan";
+$wik_mungkan->language2="english";
+$wik_mungkan->password="76ba90489c65e498472d40d081c1e820c144e28f";
+//wikmungkan
+
+ $languages = array($agedcare2, $agedcare3, $agedcare4, $agedcare5, $group5, $group6, $group7, $group8, $group9, $banyjima, $freshhope1, $freshhope2, $gathang, $guugu_yimithirr, $hungarian, $mangarrayi, $umpila, $wik_mungkan, $sandpit);
 
 
 ?>
