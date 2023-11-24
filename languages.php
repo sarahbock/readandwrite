@@ -100,6 +100,13 @@ $mangarrayi->language1header="";
 $mangarrayi->language2="english";
 $mangarrayi->password="2195cb035b3890987afc53bed8a8339128caab3c";
 
+$mpakwithi = new stdClass();
+$mpakwithi->language1="mpakwithi";
+$mpakwithi->language1header="Mpakwithi";
+$mpakwithi->language2="english";
+$mpakwithi->password="4a9c854d430c8c3b7df18f64d15515e2641e76b4";
+//mmpakwithi
+
 $sandpit = new stdClass();
 $sandpit->language1="sandpit";
 $sandpit->language1header="Language";
@@ -119,7 +126,7 @@ $wik_mungkan->language2="english";
 $wik_mungkan->password="76ba90489c65e498472d40d081c1e820c144e28f";
 //wikmungkan
 
- $languages = array($agedcare2, $agedcare3, $agedcare4, $agedcare5, $group5, $group6, $group7, $group8, $group9, $banyjima, $freshhope1, $freshhope2, $gathang, $guugu_yimithirr, $hungarian, $mangarrayi, $umpila, $wik_mungkan, $sandpit);
+ $languages = array($agedcare2, $agedcare3, $agedcare4, $agedcare5, $group5, $group6, $group7, $group8, $group9, $banyjima, $freshhope1, $freshhope2, $gathang, $guugu_yimithirr, $hungarian, $mangarrayi, $mpakwithi, $umpila, $wik_mungkan, $sandpit);
 
 
 ?>

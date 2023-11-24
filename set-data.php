@@ -13,7 +13,7 @@ $table = $_GET["table"];
 
 if ($id!==0) {
    //already exists
-	$sql = 'UPDATE '.$table.' SET '.$field.'="'.$value.'", timestamp=NOW() WHERE id='.$id;
+	$sql = 'UPDATE '.$table.' SET `'.$field.'`="'.$value.'", timestamp=NOW() WHERE id='.$id;
 
 } else if ( $id===0 && strpos($table, 'topics') ){
 	//topics table with prefilled headings id and topic - add count to be one more than the last order number
