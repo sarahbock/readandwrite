@@ -60,6 +60,7 @@ if (!$_SESSION['loggedIn']): ?>
               else if ($value->language1 === 'freshhope1') { $displayLanguage = 'Fresh Hope 1'; }
               else if ($value->language1 === 'freshhope2') { $displayLanguage = 'Fresh Hope 2'; }
               else if ($value->language1 === 'wik_mungkan') { $displayLanguage = 'Wik Mungkan'; }
+              else if ($value->language1 === 'flinders') { $displayLanguage = 'Flinders Island'; }
               else { $displayLanguage = $value->language1;}
               echo '<option value="'.$x.'">'.ucfirst($displayLanguage).'</option>';
             }

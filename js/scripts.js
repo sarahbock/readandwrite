@@ -326,8 +326,11 @@ $(document).ready(function(){
     $(".language1").html(language1Cap); if (language1header!==""){$(".language1").html(language1header);}
     $(".language2").html(language2Cap);
     $("title").html(language1Cap+" Record and Write");
-    (language1Cap==="Umpila") ? $("title").html("Ngampula Kuuku Pitaanchimana: Record and Write") : $("title").html(language1Cap+" Record and Write");
-
+    switch (language1Cap) {
+      case 'Umpila': $("title").html("Ngampula Kuuku Pitaanchimana: Record and Write"); break;
+      case 'Flinders': $("title").html("Flinders Island: Record and Write"); break;
+      default: $("title").html(language1Cap+" Record and Write");
+    }
     $("#topicSelect").val($("#topicSelect").data("selected"));
     $("#additionaltopic1Select").val($("#additionaltopic1Select").data("selected"));
     $("#additionaltopic2Select").val($("#additionaltopic2Select").data("selected"));
