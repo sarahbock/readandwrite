@@ -64,6 +64,13 @@ $banyjima->language2="english";
 $banyjima->password="dfb7d64f379674d60cfbe54267893da91a1f7063";
 //banyjima1
 
+$dharug = new stdClass();
+$dharug->language1="dharug";
+$dharug->language1header="Language";
+$dharug->language2="english";
+$dharug->password="1585888190258c10dcc24814685d7e5ddf875487";
+//dhurabang
+
 $flinders = new stdClass();
 $flinders->language1="flinders";
 $flinders->language1header="Flinders Island";
@@ -133,7 +140,7 @@ $wik_mungkan->language2="english";
 $wik_mungkan->password="76ba90489c65e498472d40d081c1e820c144e28f";
 //wikmungkan
 
- $languages = array($agedcare2, $agedcare3, $agedcare4, $agedcare5, $group5, $group6, $group7, $group8, $group9, $banyjima, $flinders, $freshhope1, $freshhope2, $gathang, $guugu_yimithirr, $hungarian, $mangarrayi, $mpakwithi, $umpila, $wik_mungkan, $sandpit);
+ $languages = array($agedcare2, $agedcare3, $agedcare4, $agedcare5, $group5, $group6, $group7, $group8, $group9, $banyjima, $dharug, $flinders, $freshhope1, $freshhope2, $gathang, $guugu_yimithirr, $hungarian, $mangarrayi, $mpakwithi, $umpila, $wik_mungkan, $sandpit);
 
 
 ?>

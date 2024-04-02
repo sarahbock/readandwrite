@@ -600,11 +600,12 @@ function cleanClipboard(){
 }
 
 function textAreaBlur(e){
-    //show("new text "+$(e).html());
+   
    // if ($(e).html()!==initialText){ //only save it if it's different to the intiial text
     var id=$(e).data("id");
     var field=$(e).data("field");
     var value=cleanUp($(e).html());
+    show("new text "+value);
     if ($(e).hasClass("glossing")===false){value = stripHTML(value); $(e).html(value);} //strip any HTML tags if it isn't a glossed text area
     if ($(e).hasClass("hex")===true){  $(e).closest('tr').css("background-color","#"+$(e).html());  } //apply new hex code to table row
     //value=encodeURIComponent(value);
