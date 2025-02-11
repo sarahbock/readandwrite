@@ -1100,8 +1100,10 @@ function editConversations(id){
 }
 
 function viewShell(id,conv){
-    var url=shellPath+"&id="+id+"&conv="+conv;
-    window.open(url,"listenandtalk");
+  //time stamp to force cache refresh
+  var timeStamp = new Date().getTime();
+  var url=shellPath+"&id="+id+"&conv="+conv+'&v='+timeStamp;;
+  window.open(url,"listenandtalk");
 }
 
 function editEntry(id){

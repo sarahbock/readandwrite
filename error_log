@@ -1,74 +1,52 @@
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined index: meaning in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/edit_temp.php on line 180
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined index: kriol in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/edit_temp.php on line 187
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
-[03-Jun-2024 11:51:04 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
-[03-Jun-2024 11:51:10 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
-[03-Jun-2024 11:51:14 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
+[11-Feb-2025 13:10:52 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
+[11-Feb-2025 13:10:52 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
+[11-Feb-2025 13:10:52 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
+[11-Feb-2025 13:10:52 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
+[11-Feb-2025 13:10:52 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
+[11-Feb-2025 13:10:52 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
+[11-Feb-2025 13:10:52 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
+[11-Feb-2025 13:10:52 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
+[11-Feb-2025 13:10:52 Australia/Melbourne] PHP Notice:  Undefined offset: 1 in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/edit.php on line 274
+[11-Feb-2025 13:10:52 Australia/Melbourne] PHP Notice:  Undefined offset: 1 in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/edit.php on line 357
+[11-Feb-2025 13:10:52 Australia/Melbourne] PHP Notice:  Undefined offset: 2 in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/edit.php on line 358
+[11-Feb-2025 13:10:52 Australia/Melbourne] PHP Notice:  Undefined offset: 3 in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/edit.php on line 359
+[11-Feb-2025 13:11:25 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/get-filters.php on line 3
+[11-Feb-2025 13:11:25 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
+[11-Feb-2025 13:11:25 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
+[11-Feb-2025 13:11:25 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
+[11-Feb-2025 13:11:25 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
+[11-Feb-2025 13:11:25 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
+[11-Feb-2025 13:11:25 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
+[11-Feb-2025 13:11:25 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
+[11-Feb-2025 13:11:27 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
+[11-Feb-2025 13:11:27 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
+[11-Feb-2025 13:11:27 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
+[11-Feb-2025 13:11:27 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
+[11-Feb-2025 13:11:27 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
+[11-Feb-2025 13:11:27 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
+[11-Feb-2025 13:11:27 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
+[11-Feb-2025 13:11:27 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
+[11-Feb-2025 13:12:00 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101
+[11-Feb-2025 13:13:54 Australia/Melbourne] PHP Notice:  Undefined variable: db_connect_dir in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/set-data.php on line 3
+[11-Feb-2025 13:13:54 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 3
+[11-Feb-2025 13:13:54 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 4
+[11-Feb-2025 13:13:54 Australia/Melbourne] PHP Notice:  Undefined variable: _SESSION in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 5
+[11-Feb-2025 13:13:54 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 67
+[11-Feb-2025 13:13:54 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 77
+[11-Feb-2025 13:13:54 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 95
+[11-Feb-2025 13:13:54 Australia/Melbourne] PHP Notice:  Trying to get property of non-object in /home/lovelear/public_html/elearnaustralia/opal/readandwrite/settings.php on line 101

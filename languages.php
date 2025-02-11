@@ -108,6 +108,13 @@ $hungarian->language1header="";
 $hungarian->language2="english";
 $hungarian->password="2195cb035b3890987afc53bed8a8339128caab3c";
 
+//injinoo
+$injinoo = new stdClass();
+$injinoo->language1="injinoo";
+$injinoo->language1header="Injinoo Ikya";
+$injinoo->language2="english";
+$injinoo->password="f6f793e06bbfde897f15fab26eb3983d8cd26611";
+
 $mangarrayi = new stdClass();
 $mangarrayi->language1="mangarrayi";
 $mangarrayi->language1header="";
@@ -140,7 +147,7 @@ $wik_mungkan->language2="english";
 $wik_mungkan->password="76ba90489c65e498472d40d081c1e820c144e28f";
 //wikmungkan
 
- $languages = array($agedcare2, $agedcare3, $agedcare4, $agedcare5, $group5, $group6, $group7, $group8, $group9, $banyjima, $dharug, $flinders, $freshhope1, $freshhope2, $gathang, $guugu_yimithirr, $hungarian, $mangarrayi, $mpakwithi, $umpila, $wik_mungkan, $sandpit);
+ $languages = array($agedcare2, $agedcare3, $agedcare4, $agedcare5, $group5, $group6, $group7, $group8, $group9, $banyjima, $dharug, $flinders, $freshhope1, $freshhope2, $gathang, $guugu_yimithirr, $hungarian, $injinoo, $mangarrayi, $mpakwithi, $umpila, $wik_mungkan, $sandpit);
 
 
 ?>

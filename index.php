@@ -40,7 +40,7 @@
 		?>
 		</style>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/scripts.js?v=53"></script>
+    <script type="text/javascript" src="js/scripts.js?v=54"></script>
     <script type="text/javascript" src="js/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="js/rangy-core.js"></script> <!-- range and selection library - https://github.com/timdown/rangy-->
     <script type="text/javascript" src="js/rangy-classapplier.js"></script>
