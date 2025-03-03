@@ -39,7 +39,7 @@
 		?>
 		</style>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/scripts.js?v=51"></script>
+    <script type="text/javascript" src="js/scripts.js?v=55"></script>
     <script src="js/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="js/rangy-core.js"></script>
     <script type="text/javascript" src="js/rangy-classapplier.js"></script>

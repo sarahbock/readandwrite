@@ -539,8 +539,9 @@ function playOnboarding(){
 function addEntry(){
   if ($('#modeButtonAdd .modeButtonItem button').html()==='Working...') return false;
   $('#modeButtonAdd .modeButtonItem button').html('Working...');
-  console.log(apiPath+"set-data.php?id=0&table="+language1);
-  $.get(apiPath+"set-data.php?id=0&table="+language1, function(data) {
+  var timeStamp = new Date().getTime();
+  //console.log(apiPath+"set-data.php?id=0&table="+language1+'&v='+timeStamp); 
+  $.get(apiPath+"set-data.php?id=0&table="+language1+'&v='+timeStamp, function(data) {
     //console.log('added row',data);
     //get id of new inserted row
     var lastRow=$.trim(data);
@@ -1227,16 +1228,18 @@ function deleteItem(id, item, value){
 }
 
 function addTopic(headingId, count){
-  console.log(apiPath+"set-data.php?id=0&field=topics&table="+language1+"_topics&value="+headingId+"&count="+count);
-  $.get(apiPath+"set-data.php?id=0&field=topics&table="+language1+"_topics&value="+headingId+"&count="+count, function() {})//write to db
+  var timeStamp = new Date().getTime();
+  console.log(apiPath+"set-data.php?id=0&field=topics&table="+language1+"_topics&value="+headingId+"&count="+count+'&v='+timeStamp);
+  $.get(apiPath+"set-data.php?id=0&field=topics&table="+language1+"_topics&value="+headingId+"&count="+count+'&v='+timeStamp, function() {})//write to db
   .done(function(){
     window.location.reload();
   });
 }
 
 function addHeading(count){
-  console.log(apiPath+"set-data.php?id=0&field=headings&table="+language1+"_headings&value=&count="+count);
-  $.get(apiPath+"set-data.php?id=0&field=headings&table="+language1+"_headings&value=&count="+count, function() {})//write to db
+  var timeStamp = new Date().getTime();
+  console.log(apiPath+"set-data.php?id=0&field=headings&table="+language1+"_headings&value=&count="+count+'&v='+timeStamp);
+  $.get(apiPath+"set-data.php?id=0&field=headings&table="+language1+"_headings&value=&count="+count+'&v='+timeStamp, function() {})//write to db
   .done(function(){
     window.location.reload();
   });
@@ -1517,8 +1520,9 @@ function addRow(id){
     showQuick();
     //ENTRIES
     //insert empty row into db
-    console.log(apiPath+"set-data.php?id=0&table="+language1);
-    $.get(apiPath+"set-data.php?id=0&table="+language1, function(data) {
+    var timeStamp = new Date().getTime();
+    console.log(apiPath+"set-data.php?id=0&table="+language1+'&v='+timeStamp);
+    $.get(apiPath+"set-data.php?id=0&table="+language1+'&v='+timeStamp, function(data) {
         //get id of new inserted row
         var lastRow=$.trim(data);
         //append table with new row
