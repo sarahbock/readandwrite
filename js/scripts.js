@@ -1250,17 +1250,18 @@ function addHeading(count){
 
 function uploadFile(field,id){
 	var files = document.getElementById(field).files; //read the files in the relevant file input
-	show("UPLOAD FILE "+field+" "+id+" filename "+files[0].name);
 	if(files.length > 0 ){//check there is file data
-		var formData = new FormData();//create a form data object
+    show("UPLOAD FILE "+field+" "+id+" filename "+files[0].name);
+    var timeStamp = new Date().getTime();
+    var formData = new FormData();//create a form data object
     if (files[0].name.indexOf('"')!==-1||files[0].name.indexOf("'")!==-1||files[0].name.indexOf(" ")!==-1){
       alert("Make sure the name of the file does not include any punctuation symbols or spaces."); return false;
     }
 		formData.append("file", files[0]); //add the file to the file key in the form data object
 		var xhttp = new XMLHttpRequest(); //set up AJAX request
-		var xurl="upload-soundfile.php?dir="+language1;
+		var xurl="upload-soundfile.php?dir="+language1+'&v='+timeStamp;
     if (field==="image" || field.indexOf("image")!==-1 ) {
-      xurl="upload-imagefile.php?dir="+language1;
+      xurl="upload-imagefile.php?dir="+language1+'&v='+timeStamp;
     } //set AJAX script according to media type
     $("#"+field+"upload").val("Uploading...");//change upload button text
 		xhttp.open("POST", xurl, true); //send AJAX request
@@ -1272,13 +1273,13 @@ function uploadFile(field,id){
           //$sql = 'UPDATE '.$table.' SET '.$field.'="'.$value.'", timestamp=NOW() WHERE id='.$id;
           if (field.indexOf("imageHeading")!==-1) {
             //show(apiPath+"set-data.php?id="+id+"&field=image&table="+language1+"_headings&value="+files[0].name);
-            $.get(apiPath+"set-data.php?id="+id+"&field=image&table="+language1+"_headings&value="+files[0].name, function() {})//write to db
+            $.get(apiPath+"set-data.php?id="+id+"&field=image&table="+language1+"_headings&value="+files[0].name+'&v='+timeStamp, function() {})//write to db
             .done(function(){window.location.reload();});//reload page to show media players
           } else if (field.indexOf("imageTopic")!==-1) {
-            $.get(apiPath+"set-data.php?id="+id+"&field=image&table="+language1+"_topics&value="+files[0].name, function() {})//write to db
+            $.get(apiPath+"set-data.php?id="+id+"&field=image&table="+language1+"_topics&value="+files[0].name+'&v='+timeStamp, function() {})//write to db
             .done(function(){window.location.reload();});//reload page to show media players
           } else {
-            $.get(apiPath+"set-data.php?id="+id+"&field="+field+"&table="+language1+"&value="+files[0].name, function() {})//write to db
+            $.get(apiPath+"set-data.php?id="+id+"&field="+field+"&table="+language1+"&value="+files[0].name+'&v='+timeStamp, function() {})//write to db
             .done(function(){window.location.reload();});//reload page to show media players
           }
 				} else {
