@@ -28,8 +28,4 @@ $conn->query($insertSQL);
 
 
 
-
-
-
-
 ?>

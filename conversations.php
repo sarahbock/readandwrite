@@ -56,7 +56,7 @@
     }
 	?>
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/scripts.js?v=20"></script>
+<script type="text/javascript" src="js/scripts.js?v=203"></script>
 <script type="text/javascript" src="js/buttons.js?v=1"></script>
 
 <div id="container" data-id="<?php echo($id);?>">

@@ -517,8 +517,9 @@ $(document).ready(function(){
 
 	$("#addConversation").click(function(){
 		var testEntry=$("#entry1").val();
-        if(testEntry==="0"){alert("Please enter at least one item"); return;}
-        $.get(apiPath+"set-conversation.php?table="+language1+"&var1="+$("#entry1").val()+"&var2="+$("#entry2").val()+"&var3="+$("#entry3").val()+"&var4="+$("#entry4").val()+"&var5="+$("#entry5").val()+"&var6="+$("#entry6").val(), function() {})
+    if(testEntry==="0"){alert("Please enter at least one item"); return;}
+    var timeStamp = new Date().getTime();
+        $.get(apiPath+"set-conversation.php?table="+language1+"&var1="+$("#entry1").val()+"&var2="+$("#entry2").val()+"&var3="+$("#entry3").val()+"&var4="+$("#entry4").val()+"&var5="+$("#entry5").val()+"&var6="+$("#entry6").val()+'&v='+timeStamp, function() {})
         .done(function() {getConversations();})
         .fail(function() { });
 	});
@@ -1330,8 +1331,9 @@ function deleteFile(field,id,file){
 
 function getConversations(){
 	"use strict";
-    console.log('getconversations '+apiPath+"get-conversations-text.php");
-    $.getJSON(apiPath+"get-conversations-text.php?table="+language1, function(data) {if (data!==0) {console.log(JSON.stringify(data)); conversations=data; }})
+    var timeStamp = new Date().getTime();
+    //console.log('getconversations '+apiPath+"get-conversations-text.php");
+    $.getJSON(apiPath+"get-conversations-text.php?table="+language1+'&v='+timeStamp, function(data) {if (data!==0) {console.log(JSON.stringify(data)); conversations=data; }})
   	.done(function() {
       //console.log("done getting conversations");
       $.getJSON(apiPath+"get-filters.php?table="+language1, function(data, conversations) {if (data!==0) {filters=data; }})
