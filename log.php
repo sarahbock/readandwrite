@@ -15,13 +15,14 @@ $allowed_tables = [
     'dharug'
 ]; 
 
+
 if (!in_array($table, $allowed_tables)) {
     die("Invalid table name.");
 }
 
 if ($entry && $token !== "sarah@bock.com.au") {
     if ($token === '') {
-        $insertSQL2 = "INSERT INTO `{$table}_log` (`userid`, `entryid`, `interactionid`, `date`) VALUES ('0', '12', '4', CURRENT_TIMESTAMP);";
+        $insertSQL2 = "INSERT INTO `{$table}_log` (`userid`, `entryid`, `interactionid`, `date`) VALUES ('0', {$entry}, {$interaction}, CURRENT_TIMESTAMP);";
     } else {
         $token = $conn->real_escape_string($token);
         $insertSQL2 = "INSERT INTO `{$table}_log` (userid, entryid, interactionid, date) SELECT id, {$entry}, {$interaction}, CURRENT_TIMESTAMP FROM {$table}_tokens WHERE token='{$token}'";

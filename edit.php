@@ -39,7 +39,7 @@
 		?>
 		</style>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/scripts.js?v=56"></script>
+    <script type="text/javascript" src="js/scripts.js?v=58"></script>
     <script src="js/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="js/rangy-core.js"></script>
     <script type="text/javascript" src="js/rangy-classapplier.js"></script>
@@ -352,7 +352,7 @@
     <div class="shading2">
         <div class="editLeft"><div><a data-fancybox data-src="#popup" href="javascript:void(0);"  title="More information"><i class="infoIcon fas fa-info-circle"></i></a>Linguistic keywords</div></div>
         <div class="editRight"><div>
-            <?php   $lingkeywords=explode(",", $rows[0]['keywordling']);       ?>
+            <?php $lingkeywords=explode(",", $rows[0]['keywordling']);       ?>
             <select id="ling1Select" name="" class="inline" data-id="<?php echo($rows[0]['id']);?>" data-selected="<?php echo(ucfirst(trim($lingkeywords[0])));?>"></select>
             <select id="ling2Select" name="" class="inline" data-id="<?php echo($rows[0]['id']);?>" data-selected="<?php echo(ucfirst(trim($lingkeywords[1])));?>"></select>
             <select id="ling3Select" name="" class="inline" data-id="<?php echo($rows[0]['id']);?>" data-selected="<?php echo(ucfirst(trim($lingkeywords[2])));?>"></select>

@@ -248,18 +248,18 @@ for (var c=0; c<classes.length; c++){	classSelectStr+='<option value="'+classes[
 //for (var s=0; s<speakers.length; s++){	speakerSelectStr+='<option value="'+speakers[s].title+'">'+speakers[s].title+'</option>';}
 
 //Linguistic keyword dropdowns
-var ling1SelectStr='<option value="0">PRONOUN</option>';
+var ling1SelectStr='<option value="">PRONOUN</option>';
 
 for (var l1=0; l1<lingKeyword1.length; l1++){
   //for mangarrayi make keyword 1 upper case for backwards compatibility
   var keyword1title = (language1==='mangarrayi') ? lingKeyword1[l1].title?.toUpperCase() : lingKeyword1[l1].title;
   ling1SelectStr+='<option value="'+keyword1title+'">'+keyword1title+'</option>';
 }
-var ling2SelectStr='<option value="0">VERBAL</option>';
+var ling2SelectStr='<option value="">VERBAL</option>';
 for (var l2=0; l2<lingKeyword2.length; l2++){ling2SelectStr+='<option value="'+lingKeyword2[l2].title+'">'+lingKeyword2[l2].title+'</option>';}
-var ling3SelectStr='<option value="0">NOMINAL</option>';
+var ling3SelectStr='<option value="">NOMINAL</option>';
 for (var l3=0; l3<lingKeyword3.length; l3++){ling3SelectStr+='<option value="'+lingKeyword3[l3].title+'">'+lingKeyword3[l3].title+'</option>';}
-var ling4SelectStr='<option value="0">OTHER</option>';
+var ling4SelectStr='<option value="">OTHER</option>';
 for (var l4=0; l4<lingKeyword4.length; l4++){ling4SelectStr+='<option value="'+lingKeyword4[l4].title+'">'+lingKeyword4[l4].title+'</option>';}
 
 //full string version for mangarrayi app (backwards compatibility) and filter menu in index page
