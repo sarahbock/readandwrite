@@ -1,5 +1,5 @@
 <?php
-$dir = $_GET["dir"];
+$dir = $_GET["instance"];
 clearstatcache();
 if(isset($_FILES['file']['name'])){
    // file name

@@ -1260,13 +1260,18 @@ function uploadFile(field,id){
     }
 		formData.append("file", files[0]); //add the file to the file key in the form data object
 		var xhttp = new XMLHttpRequest(); //set up AJAX request
-		var xurl="upload-soundfile.php?dir="+language1+'&v='+timeStamp;
+		var xurl="upload-soundfile.php?instance="+language1+'&v='+timeStamp;
     if (field==="image" || field.indexOf("image")!==-1 ) {
-      xurl="upload-imagefile.php?dir="+language1+'&v='+timeStamp;
+      xurl="imageul.php?instance="+language1+'&v='+timeStamp;
     } //set AJAX script according to media type
     $("#"+field+"upload").val("Uploading...");//change upload button text
 		xhttp.open("POST", xurl, true); //send AJAX request
 		xhttp.onreadystatechange = function() { //success callback
+			if (this.readyState == 4 && this.status !== 200) {
+				alert("Upload failed: server returned status " + this.status + ".");
+				$("#"+field+"upload").val("Upload");
+				return;
+			}
 			if (this.readyState == 4 && this.status == 200) {
 				var response = this.responseText;
 				if(response == 1){
