@@ -430,11 +430,13 @@ $(document).ready(function(){
                 alert("Make sure you have selected a keyword, not a category. (Categories are written in capital letters).");
             } else {
                 field="keywordling"; //field name in database
-                value=""; //reset value
-                if ($("#ling1Select").val()!=="0"&&$("#ling1Select").val()!==""){value+=$("#ling1Select").val();} //add first dropdown value to value
-                if ($("#ling2Select").val()!=="0"&&$("#ling2Select").val()!==""){value+=","+$("#ling2Select").val();} //add 2nd dropdown value to value
-                if ($("#ling3Select").val()!=="0"&&$("#ling3Select").val()!==""){value+=","+$("#ling3Select").val();} //add 3rd dropdown value to value
-                if ($("#ling4Select").val()!=="0"&&$("#ling4Select").val()!==""){value+=","+$("#ling4Select").val();} //add 4th dropdown value to value
+                //each dropdown maps to a fixed comma position (edit.php reads them back positionally,
+                //and in the default mode each position is a distinct category), so we must keep empty
+                //slots for unselected dropdowns rather than packing values together.
+                var lingVals=[$("#ling1Select").val(),$("#ling2Select").val(),$("#ling3Select").val(),$("#ling4Select").val()];
+                for (var lv=0; lv<lingVals.length; lv++){ if(lingVals[lv]==="0"||lingVals[lv]==null){lingVals[lv]="";} } //treat category headings / unset as empty
+                while(lingVals.length>0 && lingVals[lingVals.length-1]===""){ lingVals.pop(); } //trim only trailing empties to keep earlier positions intact
+                value=lingVals.join(","); //e.g. ",,,Plural" keeps a 4th-dropdown-only value in the 4th slot
                 saveField(id,field,value); //save to DB
             }
         } else if (field.indexOf("changeHeading")!==-1){
