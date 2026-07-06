@@ -154,6 +154,7 @@ var lingKeyword2=[
     {"title":"Imperative","id":"1"},
     {"title":"Imperfect tense","id":"1"},
     {"title":"Habitual","id":"1"},
+    {"title":"Hortative","id":"1"},
     {"title":"Incohative","id":"1"},
     {"title":"Intransitive","id":"1"},
     {"title":"Irrealis","id":"1"},
@@ -164,10 +165,12 @@ var lingKeyword2=[
     {"title":"Past tense","id":"1"},
     {"title":"Present","id":"1"},
     {"title":"Present tense","id":"1"},
+    {"title":"Reciprocal","id":"1"},
     {"title":"Reflexive","id":"1"},
     {"title":"Transitive verb","id":"1"},
     {"title":"Verb","id":"1"},
-    {"title":"Verb ‘have’","id":"1"}
+    {"title":"Verb ‘have’","id":"1"},
+    {"title":"Verbless","id":"1"}
 ];
 
 var lingKeyword3=[
@@ -210,6 +213,7 @@ var lingKeyword4=[
     {"title":"Article","id":"1"},
     {"title":"Assimilation","id":"1"},
     {"title":"Conjunction","id":"1"},
+    {"title":"Demonstrative","id":"1"},
     {"title":"Direction","id":"1"},
     {"title":"Ellipsis","id":"1"},
     {"title":"Emphasis","id":"1"},
