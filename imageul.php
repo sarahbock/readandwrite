@@ -1,15 +1,29 @@
 <?php
-$dir = $_GET["instance"];
+$dir = isset($_GET["instance"]) ? $_GET["instance"] : '';
 clearstatcache();
+
+// Only allow known instance names — prevents path traversal via ?instance=
+$allowed_instances = array(
+   "group1", "group2", "group3", "group4",
+   "group5", "group6", "group7", "group8", "group9",
+   "banyjima", "dharug", "flinders", "freshhope1", "freshhope2",
+   "gathang", "guugu_yimithirr", "hungarian", "injinoo", "mangarrayi",
+   "mpakwithi", "umpila", "wik_mungkan", "sandpit"
+);
+if(!in_array($dir, $allowed_instances, true)){
+   echo 0;
+   exit;
+}
+
 if(isset($_FILES['file']['name'])){
-   // file name
-   $filename = $_FILES['file']['name'];
+   // file name — strip any directory components an attacker could inject
+   $filename = basename($_FILES['file']['name']);
 
    // Location
    $location = '../'.$dir.'/img/'.$filename;
 
    // file extension
-   $file_extension = pathinfo($location, PATHINFO_EXTENSION);
+   $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
    $file_extension = strtolower($file_extension);
 
    // Valid extensions
