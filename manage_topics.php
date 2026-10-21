@@ -90,7 +90,7 @@
                 if ($headings_result->num_rows > 0) {
 		        while($heading = $headings_result->fetch_assoc()) {
 		        if ($heading['id']!=="0"){
-                                $newHeadingCounter=$heading['displayorder']+1;
+                                $newHeadingCounter=intval($heading['displayorder'])+1;
 
 								$str.='<tr class="heading">';
 
@@ -138,7 +138,7 @@
 								$newTopicCounter = 1;
                                 foreach ($alltopics as $key => $value) {
 									if ($value['heading'] === $heading['id'] || $value['heading'] === $heading['heading']){
-                                        $newTopicCounter = $value['displayorder']+1;
+                                        $newTopicCounter = intval($value['displayorder'])+1;
 										$str.='<tr>';
 
 										$str.='<td class="itemName">';

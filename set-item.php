@@ -1,6 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *"); //allow app to access cross domain file
-require_once($db_connect_dir."dbconnect.php");
+require_once("./dbconnect.php");
 require_once("settings.php");
 
 $id = intval($_GET["id"]);

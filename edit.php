@@ -268,7 +268,8 @@
     <div class="shading2">
         <div class="editLeft"><div>Topics</div></div>
         <div class="editRight"><div>
-            <?php  $addtionaltopics=explode(",", trim($rows[0]['related']));   ?>
+            <!--split additional topics into parts separated by commas, and ensure the result contains at least two elements by adding empty strings if necessary.-->
+            <?php  $addtionaltopics=array_pad(explode(",", trim((string)$rows[0]['related'])), 2, '');   ?>
 						<select id="topicSelect" name="" class="inline" data-id="<?php echo($rows[0]['id']);?>" data-selected="<?php echo(trim($rows[0]['topic']));?>"><?php echo $topicStr; ?></select>
             <select id="additionaltopic1Select" name="" class="inline" data-id="<?php echo($rows[0]['id']);?>" data-selected="<?php echo($addtionaltopics[0]);?>"><?php echo $topicStr; ?></select>
             <select id="additionaltopic2Select" name="" class="inline" data-id="<?php echo($rows[0]['id']);?>" data-selected="<?php echo($addtionaltopics[1]);?>"><?php echo $topicStr; ?></select>
@@ -352,7 +353,8 @@
     <div class="shading2">
         <div class="editLeft"><div><a data-fancybox data-src="#popup" href="javascript:void(0);"  title="More information"><i class="infoIcon fas fa-info-circle"></i></a>Linguistic keywords</div></div>
         <div class="editRight"><div>
-            <?php $lingkeywords=explode(",", $rows[0]['keywordling']);       ?>
+            <!--split linguistic keywords into parts separated by commas, and ensure the result contains at least 4 elements by adding empty strings if necessary.-->
+            <?php $lingkeywords=array_pad(explode(",", (string)$rows[0]['keywordling']), 4, '');       ?>
             <select id="ling1Select" name="" class="inline" data-id="<?php echo($rows[0]['id']);?>" data-selected="<?php echo(ucfirst(trim($lingkeywords[0])));?>"></select>
             <select id="ling2Select" name="" class="inline" data-id="<?php echo($rows[0]['id']);?>" data-selected="<?php echo(ucfirst(trim($lingkeywords[1])));?>"></select>
             <select id="ling3Select" name="" class="inline" data-id="<?php echo($rows[0]['id']);?>" data-selected="<?php echo(ucfirst(trim($lingkeywords[2])));?>"></select>

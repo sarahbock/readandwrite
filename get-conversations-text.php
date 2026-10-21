@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *"); // allow cross-origin requests
 
-require_once($db_connect_dir . "dbconnect.php");
+require_once("./dbconnect.php");
 require_once("settings.php");
 
 $error = null;

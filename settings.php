@@ -1,8 +1,9 @@
- <?php
+<?php
 
-$language1=$_SESSION['language1']; //lowercase primary language name e.g. german
-$language1header=$_SESSION['language1header'];
-$language2=$_SESSION['language2']; //lowercase translation language name e.g. english
+//API calls have no session so these default to empty strings
+$language1=isset($_SESSION['language1']) ? $_SESSION['language1'] : ''; //lowercase primary language name e.g. german
+$language1header=isset($_SESSION['language1header']) ? $_SESSION['language1header'] : '';
+$language2=isset($_SESSION['language2']) ? $_SESSION['language2'] : ''; //lowercase translation language name e.g. english
 $language1U = ucfirst($language1); //Change first letter to capital
 $language2U = ucfirst($language2);
 
@@ -24,6 +25,7 @@ $filters=array("Topics"=>"topic", "Flagged"=>"flag","Language keywords"=>"keywor
 
 //detect Windows-1252
 function convertString ($str) {
+  if ($str === null || $str === '') { return $str; } //NULL db columns stay null in JSON
   $characters = ['¤','¼','©','‰','¶','Ã¡','ˆ','Ì','ÃŸ','â€™'];
   $pos = false;
   foreach ($characters as $value) {
@@ -37,12 +39,18 @@ function convertString ($str) {
   return $convertedString;
 }
 
-//create array of glossing categories
-$sql_glossing = "SELECT * FROM ".$table."_glossing ORDER BY id";
-$result_glossing = $conn->query($sql_glossing);
 $glossing=array();
-if ($result_glossing) {
-  if ($result_glossing->num_rows > 0) {
+$speakers=array();
+$functions=array();
+$topics = [];
+
+//only look up language tables when logged in (API calls have no session so $table is empty)
+if ($table !== '') {
+
+  //create array of glossing categories
+  $sql_glossing = "SELECT * FROM ".$table."_glossing ORDER BY id";
+  $result_glossing = $conn->query($sql_glossing);
+  if ($result_glossing && $result_glossing->num_rows > 0) {
     while($row_glossing = $result_glossing->fetch_assoc()) {
       $glossing_temp = array(
         "id"=>$row_glossing['id'],
@@ -56,57 +64,48 @@ if ($result_glossing) {
       $glossing[]=$glossing_temp;
     }
   }
-}
 
-
-
-//create array of speakers
-$sql_speakers = "SELECT * FROM ".$table."_speakers ORDER BY name";
-$result_speakers = $conn->query($sql_speakers);
-$speakers=array();
-if ($result_speakers->num_rows > 0) {
-  while($row_speakers = $result_speakers->fetch_assoc()) {
-    $speakers[]=$row_speakers['name'];
+  //create array of speakers
+  $sql_speakers = "SELECT * FROM ".$table."_speakers ORDER BY name";
+  $result_speakers = $conn->query($sql_speakers);
+  if ($result_speakers && $result_speakers->num_rows > 0) {
+    while($row_speakers = $result_speakers->fetch_assoc()) {
+      $speakers[]=$row_speakers['name'];
+    }
   }
-}
 
-//create array of functions
-$sql_functions = "SELECT * FROM ".$table."_functions ORDER BY title";
-$result_functions = $conn->query($sql_functions);
-$functions=array();
-if ($result_functions->num_rows > 0) {
-  while($row_functions = $result_functions->fetch_assoc()) {
-    $functions[]=$row_functions['title'];
+  //create array of functions
+  $sql_functions = "SELECT * FROM ".$table."_functions ORDER BY title";
+  $result_functions = $conn->query($sql_functions);
+  if ($result_functions && $result_functions->num_rows > 0) {
+    while($row_functions = $result_functions->fetch_assoc()) {
+      $functions[]=$row_functions['title'];
+    }
   }
-}
 
-  //new version
   //create array of topics
-
   $headings_sql = "SELECT * FROM ".$table."_headings ORDER BY heading";
   $topics_sql = "SELECT * FROM ".$table."_topics ORDER BY topic";
 
   $headings_result = $conn->query($headings_sql);
   $topics_result = $conn->query($topics_sql);
 
-  $topics = [];
-
   $alltopics = [];
-  if ($topics_result->num_rows > 0) {
+  if ($topics_result && $topics_result->num_rows > 0) {
     while($topic = $topics_result->fetch_assoc()) {
       $alltopics[] = $topic;
     }
   }
 
-  if ($headings_result->num_rows > 0) {
+  if ($headings_result && $headings_result->num_rows > 0) {
     while($heading = $headings_result->fetch_assoc()) {
-      if ($heading['id']!=="0" && trim($heading['heading']) !=="" ){
+      if ($heading['id']!=="0" && trim((string)$heading['heading']) !=="" ){
 
         $subtopics = [];
 
         foreach ($alltopics as $key => $value) {
           if ($value['heading'] === $heading['id'] || $value['heading'] === $heading['heading']){
-            if ( trim($value["topic"]) !=="" ) {
+            if ( trim((string)$value["topic"]) !=="" ) {
               $temp = array("id"=>$value["id"],"topic"=>$value["topic"]);
               $subtopics[]=$temp;
             }
@@ -120,49 +119,6 @@ if ($result_functions->num_rows > 0) {
     }
   }
 
-/*} else {
-
-  //create array of topics
-  $sql = "SELECT * FROM ".$table."_topics";
-  $result = $conn->query($sql);
-  $topics_full=array();
-  $topics=array();
-  $topic_headings=array();
-  if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-      //create array of headings
-      $topic_heading=$row['heading']; if ($topic_heading===null||$topic_heading===""){$topic_heading="Other";}
-      if (!in_array($topic_heading, $topic_headings)) {$topic_headings[]=$topic_heading;}
-
-      //create keyed array for topics and push into topics full array
-      if (trim($row['topic'])!==""){
-        $temp = array("heading"=>$topic_heading,"topic"=>$row['topic']);
-        $topics_full[]=$temp;
-      }
-    }
-  }
-
-  //format the topics array correctly
-  //sort headings into alphabetical order
-  sort($topic_headings);
-  //move the 'Other' heading to the end of the list
-  $other_index=array_search('Other', $topic_headings);
-  if($other_index){unset($topic_headings[$other_index]); $topic_headings[]="Other";}
-  //go through headings array and get topics under each heading
-  foreach ($topic_headings as $value) {
-    $temp2=array();
-    foreach ($topics_full as $value2) {
-      if ($value2["heading"]===$value){
-        $temp2[]=$value2["topic"];
-      }
-    }
-    //sort topics into alphabetical order under each heading
-    sort($temp2);
-    //for each heading create array of heading title plus the topics for each heading
-    $temp = array("title"=>$value, "subtopics"=>$temp2);
-    $topics[]=$temp;
-  }
-}*/
-
+}
 
 ?>

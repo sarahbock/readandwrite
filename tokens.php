@@ -6,7 +6,7 @@
     <script type="text/javascript">
         <?php
         //write settings to js
-        $jsString.='var language1="'.$language1.'"; ';
+        $jsString='var language1="'.$language1.'"; ';
         echo $jsString;
         ?>
     </script>
