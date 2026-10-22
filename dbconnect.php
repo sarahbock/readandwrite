@@ -6,5 +6,6 @@ $conn = new mysqli('localhost', 'lovelear_opal', '.27.pIFe^fI#', 'lovelear_opal'
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+$conn->set_charset('utf8'); //data is UTF-8; don't rely on the driver/server default (latin1 under mysqlnd)
 
  ?>
